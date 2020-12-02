@@ -5,6 +5,9 @@ import * as firebase from '../../firebase';
 
 const CharacterCreateScreen = ({navigation, route}) =>{
 
+    //Getting params passed from HomeScreen
+    const { playerPoints } = route.params;
+
     // React.useEffect(()=>{
     //     console.log('Character Screen loaded.')
     //     //Initialize connection with database
@@ -13,6 +16,18 @@ const CharacterCreateScreen = ({navigation, route}) =>{
 
       const [charName, setName] = useState("Player1");
       const [selectedValue, setSelectedValue] = useState("Rockerboy");
+
+      //Use useState to change the amount of points when a user uses the buttons
+        const [skillPoints, setPoints] =useState(playerPoints);
+        const [charInt, setInt] = useState(0);
+        const [charRef, setRef] = useState(0);
+        const [charTech, setTech] = useState(0);
+        const [charCool, setCool] = useState(0);
+        const [charAttr, setAttr] = useState(0);
+        const [charLuck, setLuck] = useState(0);
+        const [charMa, setMa] = useState(0);
+        const [charBody, setBody] = useState(0);
+        const [charEmp, setEmp] = useState(0);
 
       const userInit = async (selectedName, selectedRole) => {
           try{
@@ -35,11 +50,11 @@ const CharacterCreateScreen = ({navigation, route}) =>{
 
 
     return (
-        <View>
+        <View style={styles.container}>
             <Text>Character Screen</Text>
 
             <TextInput
-            style={{height: 40, borderColor: 'gray', borderWidth: 1, margin: 5}}
+            style={{height: 40, borderColor: 'gray', borderWidth: 1, margin: 5 }}
             placeholder="Name"
             onChangeText={(val) => setName(val)}
             />
@@ -64,6 +79,8 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                     </Picker>
                 </View>
 
+                
+
             <Button
                 title="Submit"
                         onPress={() => {
@@ -74,6 +91,17 @@ const CharacterCreateScreen = ({navigation, route}) =>{
         </View>
     )
 }
+
+//Character Creation stylesheet
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      marginBottom: 10
+    },
+  });
 
 
 export default CharacterCreateScreen;
