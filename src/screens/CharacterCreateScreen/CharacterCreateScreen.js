@@ -29,14 +29,23 @@ const CharacterCreateScreen = ({navigation, route}) =>{
         const [charBody, setBody] = useState(0);
         const [charEmp, setEmp] = useState(0);
 
-      const userInit = async (selectedName, selectedRole) => {
+      const userInit = async (selectedName, selectedRole, charInt, charRef, charTech, charCool, charAttr, charLuck, charMa, charBody, charEmp) => {
           try{
               await firebase.init();
 
               //Construct a user obj
               const user = {
                   Role: selectedRole,
-                  userName: selectedName
+                  userName: selectedName,
+                  Int: charInt,
+                  Ref: charRef,
+                  Tech: charTech,
+                  Cool: charCool,
+                  Attr: charAttr,
+                  Luck: charLuck,
+                  MA: charMa,
+                  Body: charBody,
+                  Emp: charEmp
               }
               await firebase.createUser(user);
 
@@ -366,7 +375,7 @@ const CharacterCreateScreen = ({navigation, route}) =>{
             <Button
                 title="Submit"
                         onPress={() => {
-                            userInit(charName, selectedValue);
+                            userInit(charName, selectedValue, charInt, charRef, charTech, charCool, charAttr, charLuck, charMa, charBody, charEmp);
                         }}
             />
 
