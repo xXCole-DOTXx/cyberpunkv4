@@ -37,6 +37,9 @@ const CharacterCreateScreen = ({navigation, route}) =>{
               const user = {
                   Role: selectedRole,
                   userName: selectedName,
+              }
+              
+              const skillSheet ={
                   Int: charInt,
                   Ref: charRef,
                   Tech: charTech,

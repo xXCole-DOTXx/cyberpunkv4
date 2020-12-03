@@ -18,7 +18,7 @@ export const init = () => {
 
 
 export const createUser = (user) =>
-    firebase.firestore().collection('users').doc(user.userName).set(user);
+    firebase.firestore().collection('users').doc(user.userName).set(user); // I need to know how to create a subcollection when creating a document
 
 
 export const getAllUsers = () => firebase.firestore.collection('users').get(); //This line does not work right now.

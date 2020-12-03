@@ -13,6 +13,12 @@ const HomeScreen = ({navigation, route}) => {
           })}
           color="#19AC52"
         />
+
+        <Button
+          title="Select a character"
+          onPress={() => navigation.navigate('CharacterSelect')}
+          color="#19AC52"
+        />
       </View>
     )
 }
