@@ -5,14 +5,8 @@ import * as firebase from '../../firebase';
 
 const CharacterCreateScreen = ({navigation, route}) =>{
 
-    //Getting params passed from HomeScreen
-    const { playerPoints } = route.params;
-
-    // React.useEffect(()=>{
-    //     console.log('Character Screen loaded.')
-    //     //Initialize connection with database
-    //     userInit();
-    //   },[])
+      //Getting params passed from HomeScreen
+      const { playerPoints } = route.params;
 
       const [charName, setName] = useState("Player1");
       const [selectedValue, setSelectedValue] = useState("Rockerboy");
