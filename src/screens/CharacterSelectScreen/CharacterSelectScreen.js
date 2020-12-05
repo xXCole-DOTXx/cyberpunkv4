@@ -5,6 +5,8 @@ import * as firebase from '../../firebase';
 
 const CharacterSelectScreen = ({navigation, route}) => {
 
+    var userList = [];
+
        React.useEffect(()=>{
         console.log('Select Screen loaded.')
         userFetch();
@@ -13,19 +15,17 @@ const CharacterSelectScreen = ({navigation, route}) => {
     const userFetch = async () => {
         try{
             await firebase.init();
-    
             const users = await firebase.getAllUsers();
-            // users is a QuerySnapshot. A QuerySnapshot contains zero or more QueryDocumentSnapshot objects representing the results of a query.
+            // users is a QuerySnapshot
             if (users.size > 0) {
                 users.forEach(doc => {
-                    console.log(doc.data())
+                    userList.push(doc.data().userName);
                 })
             }
-
-    
         } catch (error) {
             console.log(error);
         }
+        userList.forEach(item => console.log(item));
     }
 
     return (
