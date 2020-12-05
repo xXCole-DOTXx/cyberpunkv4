@@ -15,7 +15,13 @@ const CharacterSelectScreen = ({navigation, route}) => {
             await firebase.init();
     
             const users = await firebase.getAllUsers();
-            console.log(users);
+            // users is a QuerySnapshot. A QuerySnapshot contains zero or more QueryDocumentSnapshot objects representing the results of a query.
+            if (users.size > 0) {
+                users.forEach(doc => {
+                    console.log(doc.data())
+                })
+            }
+
     
         } catch (error) {
             console.log(error);
