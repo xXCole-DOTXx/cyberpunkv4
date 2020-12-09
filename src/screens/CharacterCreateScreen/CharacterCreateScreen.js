@@ -371,6 +371,7 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                 title="Submit"
                         onPress={() => {
                             userInit(charName, selectedValue, charInt, charRef, charTech, charCool, charAttr, charLuck, charMa, charBody, charEmp);
+                            navigation.navigate('Home');
                         }}
                 color="#19AC52"
             />
