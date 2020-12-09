@@ -12,7 +12,7 @@ const CharacterCreateScreen = ({navigation, route}) =>{
       const [selectedValue, setSelectedValue] = useState("Rockerboy");
 
       //Use useState to change the amount of points when a user uses the buttons
-        const [skillPoints, setPoints] =useState(playerPoints);
+        const [skillPoints, setPoints] =useState(playerPoints); //These are all examples of using hooks. 
         const [charInt, setInt] = useState(0);
         const [charRef, setRef] = useState(0);
         const [charTech, setTech] = useState(0);
@@ -44,10 +44,8 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                   Body: charBody,
                   Emp: charEmp
               }
-              await firebase.createUser(user);
 
-            //   const users = await firebase.getAllUsers();
-            //   console.log(users);
+              await firebase.createUser(user);
 
           } catch (error) {
               console.log(error);
@@ -61,12 +59,12 @@ const CharacterCreateScreen = ({navigation, route}) =>{
             <Text>Character Screen</Text>
             <Text>You have {skillPoints} remaining.</Text>
             <TextInput
-            style={{height: 40, borderColor: 'gray', borderWidth: 1, margin: 5 }}
+            style={{height: 40, borderColor: 'gray', borderWidth: 1, width: 150 }}
             placeholder="Name"
             onChangeText={(val) => setName(val)}
             />
 
-            <View style={{flexDirection: 'row', justifyContent: 'space-between', margin: 5, padding: 10}}>
+            <View style={styles.item}>
                     <Picker
                     selectedValue={selectedValue}
                     style={{ height: 50, width: 150 }}
@@ -84,9 +82,9 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                     <Picker.Item label="Nomad" value="Nomad" />
                     
                     </Picker>
-                </View>
+            </View>
                 
-      <View style={{flexDirection: 'col', justifyContent: 'space-between', margin: 5}}>
+      <View style={styles.item2}>
         {/* Int buttons */}
         <Text style={{margin: 5}}>
           <Button 
@@ -374,8 +372,8 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                         onPress={() => {
                             userInit(charName, selectedValue, charInt, charRef, charTech, charCool, charAttr, charLuck, charMa, charBody, charEmp);
                         }}
+                color="#19AC52"
             />
-
         </View>
     </ScrollView>
     )
@@ -388,8 +386,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    marginBottom: 10
   },
+
+  item: {
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    marginBottom: 150
+  },
+
+  item2: {
+    flexDirection: 'column', 
+    justifyContent: 'space-between', 
+    margin: 5,
+    marginBottom: 20
+  },
+
 });
 
 

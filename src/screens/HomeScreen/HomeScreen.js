@@ -23,26 +23,10 @@ const HomeScreen = ({navigation, route}) => {
     )
 }
 
-
-function D6(){
-  alert(Math.floor(Math.random() * 6) + 1);  // returns a random integer from 1 to 10
-  return 0;
-}
-
-function percentRoll(){
-  alert(Math.floor(Math.random() * 100) + 1 + '%');
-  return 0;
-}
-
-function D10(){
-  alert(Math.floor(Math.random() * 10) + 1);  // returns a random integer from 1 to 10
-  return 0;
-}
-
 function characterRoll(){
   var rolls = [];
   for(var i = 0; i<9; i++){
-    rolls.push(Math.floor(Math.random() * 10) + 1);
+    rolls.push(Math.floor(Math.random() * 10) + 2); //Between 2-10 because if you get a 1 you have to reroll
   }
   var sum = rolls.reduce(function(a,b){
     return a+b;

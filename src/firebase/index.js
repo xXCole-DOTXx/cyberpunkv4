@@ -22,3 +22,6 @@ export const createUser = (user) =>
 
 
 export const getAllUsers = () => firebase.firestore().collection('users').get(); //This line does not work right now.
+
+
+//https://rnfirebase.io/firestore/usage#snapshots  - good resourace for querying firebase

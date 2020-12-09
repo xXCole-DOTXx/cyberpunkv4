@@ -10,6 +10,7 @@ import CharacterSelectScreen from './src/screens/CharacterSelectScreen/Character
 
 //Used this until the end of step 3.
 //https://www.freecodecamp.org/news/react-native-firebase-tutorial/
+//This app currently uses stateless function components :: https://stackoverflow.com/questions/57762163/const-vs-class-functions-is-react-native
 const Stack = createStackNavigator();
 
 export default function App() {

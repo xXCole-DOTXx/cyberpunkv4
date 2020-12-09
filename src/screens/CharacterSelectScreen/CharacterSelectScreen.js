@@ -22,11 +22,13 @@ const CharacterSelectScreen = ({navigation, route}) => {
                     userList.push(doc.data().userName);
                 })
             }
+
         } catch (error) {
             console.log(error);
         }
         userList.forEach(item => console.log(item));
     }
+
 
     return (
         <View style={{ flex: 1, justifyContent: 'flex-start' }}>
