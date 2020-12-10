@@ -3,16 +3,14 @@ import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button, Picker, Sc
 import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/native';
 import * as firebase from '../../firebase'; 
 
+let points = characterRoll();
 const CharacterCreateScreen = ({navigation, route}) =>{
-
-      //Getting params passed from HomeScreen
-      const { playerPoints } = route.params;
 
       const [charName, setName] = useState("Player1");
       const [selectedValue, setSelectedValue] = useState("Rockerboy");
 
       //Use useState to change the amount of points when a user uses the buttons
-        const [skillPoints, setPoints] =useState(playerPoints); //These are all examples of using hooks. 
+        const [skillPoints, setPoints] =useState(points); //These are all examples of using hooks. 
         const [charInt, setInt] = useState(0);
         const [charRef, setRef] = useState(0);
         const [charTech, setTech] = useState(0);
@@ -25,8 +23,6 @@ const CharacterCreateScreen = ({navigation, route}) =>{
 
       const userInit = async (selectedName, selectedRole, charInt, charRef, charTech, charCool, charAttr, charLuck, charMa, charBody, charEmp) => {
           try{
-              await firebase.init();
-
               //Construct a user obj
               const user = {
                   Role: selectedRole,
@@ -377,6 +373,17 @@ const CharacterCreateScreen = ({navigation, route}) =>{
         </View>
     </ScrollView>
     )
+}
+
+function characterRoll(){
+  var rolls = [];
+  for(var i = 0; i<9; i++){
+    rolls.push(Math.floor(Math.random() * 10) + 2); //Between 2-10 because if you get a 1 you have to reroll
+  }
+  var sum = rolls.reduce(function(a,b){
+    return a+b;
+  }, 0);
+  return sum;
 }
 
 //Character Creation stylesheet

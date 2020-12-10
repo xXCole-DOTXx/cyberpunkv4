@@ -14,7 +14,6 @@ const CharacterSelectScreen = ({navigation, route}) => {
 
     const userFetch = async () => {
         try{
-            await firebase.init();
             const users = await firebase.getAllUsers();
             // users is a QuerySnapshot
             if (users.size > 0) {

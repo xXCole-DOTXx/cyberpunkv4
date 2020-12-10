@@ -6,7 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './src/screens/HomeScreen/HomeScreen';
 import CharacterCreateScreen from './src/screens/CharacterCreateScreen/CharacterCreateScreen';
 import CharacterSelectScreen from './src/screens/CharacterSelectScreen/CharacterSelectScreen';
-
+import * as firebase from './src/firebase'; 
 
 //Used this until the end of step 3.
 //https://www.freecodecamp.org/news/react-native-firebase-tutorial/
@@ -14,6 +14,19 @@ import CharacterSelectScreen from './src/screens/CharacterSelectScreen/Character
 const Stack = createStackNavigator();
 
 export default function App() {
+
+  //Function to initialize database
+  const dbInit = async () => {
+    try{
+        await firebase.init();
+    } catch (error) {
+        console.log(error);
+    }
+  }
+
+  //Initialize database
+  dbInit();
+
   return (
     <NavigationContainer initialRouteName ='Home'>
       <Stack.Navigator>
