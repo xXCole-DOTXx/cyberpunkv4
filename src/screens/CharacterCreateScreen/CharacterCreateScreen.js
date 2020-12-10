@@ -31,10 +31,8 @@ const CharacterCreateScreen = ({navigation, route}) =>{
               const user = {
                   Role: selectedRole,
                   userName: selectedName,
-              }
-              
-              const skillSheet ={
-                  Int: charInt,
+                  skils : {
+                    Int: charInt,
                   Ref: charRef,
                   Tech: charTech,
                   Cool: charCool,
@@ -43,6 +41,7 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                   MA: charMa,
                   Body: charBody,
                   Emp: charEmp
+                  }
               }
 
               await firebase.createUser(user);
@@ -307,8 +306,8 @@ const CharacterCreateScreen = ({navigation, route}) =>{
         <Button 
             title="+"
                     onPress={() => {
-          if(skillPoints > 0){
-          setBody(charBody + 1 && charBody < 10);
+          if(skillPoints > 0 && charBody < 10){
+          setBody(charBody + 1);
           setPoints(skillPoints - 1);
           }
           else{
