@@ -16,7 +16,7 @@ export const init = () => {
     return firebase.initializeApp(firebaseConfig);
 }
 
-
+//Use export to be able to call this elsewhere
 export const createUser = (user) =>
     firebase.firestore().collection('users').doc(user.userName).set(user); // I need to know how to create a subcollection when creating or maybe just updating a document
 
