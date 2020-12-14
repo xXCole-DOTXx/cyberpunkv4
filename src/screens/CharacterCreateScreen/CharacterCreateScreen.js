@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button, Picker, ScrollView} from 'react-native'
 import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/native';
 import * as firebase from '../../firebase'; 
+import { userCreate } from  '../../sharedComponents/userCreate.js';
 
 let points = characterRoll();
 const CharacterCreateScreen = ({navigation, route}) =>{
@@ -20,32 +21,6 @@ const CharacterCreateScreen = ({navigation, route}) =>{
         const [charMa, setMa] = useState(0);
         const [charBody, setBody] = useState(0);
         const [charEmp, setEmp] = useState(0);
-
-      const userInit = async (selectedName, selectedRole, charInt, charRef, charTech, charCool, charAttr, charLuck, charMa, charBody, charEmp) => {
-          try{
-              //Construct a user obj
-              const user = {
-                  Role: selectedRole,
-                  userName: selectedName,
-                  stats : {
-                    Int: charInt,
-                    Ref: charRef,
-                    Tech: charTech,
-                    Cool: charCool,
-                    Attr: charAttr,
-                    Luck: charLuck,
-                    MA: charMa,
-                    Body: charBody,
-                    Emp: charEmp
-                  }
-              }
-
-              await firebase.createUser(user);
-
-          } catch (error) {
-              console.log(error);
-          }
-      }
 
 
     return (
@@ -365,7 +340,7 @@ const CharacterCreateScreen = ({navigation, route}) =>{
             <Button
                 title="Submit"
                         onPress={() => {
-                            userInit(charName, selectedValue, charInt, charRef, charTech, charCool, charAttr, charLuck, charMa, charBody, charEmp);
+                            userCreate(charName, selectedValue, charInt, charRef, charTech, charCool, charAttr, charLuck, charMa, charBody, charEmp);
                             navigation.navigate('Home');
                         }}
                 color="#19AC52"
