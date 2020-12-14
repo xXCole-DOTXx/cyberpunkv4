@@ -4,8 +4,8 @@ import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/
 import * as firebase from '../../firebase'; 
 
 const CharacterSelectScreen = ({navigation, route}) => {
-
-    var userList = [];
+    
+    var userList= [];
        React.useEffect(()=>{
         console.log('Select Screen loaded.')
         userFetch();
@@ -25,6 +25,7 @@ const CharacterSelectScreen = ({navigation, route}) => {
             console.log(error);
         }
         userList.forEach(item => console.log(item)); //usreList contains all of the names. This works.
+        return userList;
     }
 
 
