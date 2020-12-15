@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button, Picker, ScrollView} from 'react-native'
 import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/native';
 import { userFetch } from '../../sharedComponents/userFetch.js';
+import { styles } from './styles.js';
 
 const CharacterSelectScreen = ({navigation, route}) => {
   const [characterList, setCharacterList] = useState([]);
@@ -45,20 +46,5 @@ const CharacterSelectScreen = ({navigation, route}) => {
       </View>
     )
 }
-
-//Character Select stylesheet
-const styles = StyleSheet.create({
-  container: { 
-    flex: 1,
-    justifyContent: 'flex-start' 
-  },
-
-  charPicker: {
-    flex: 2, 
-    justifyContent: 'flex-start' 
-  }
-
-});
-
 
 export default CharacterSelectScreen;

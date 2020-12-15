@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button, Picker, Sc
 import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/native';
 import * as firebase from '../../firebase'; 
 import { userCreate } from  '../../sharedComponents/userCreate.js';
+import { styles } from './styles.js';
 
 let points = characterRoll();
 const CharacterCreateScreen = ({navigation, route}) =>{
@@ -361,29 +362,6 @@ function characterRoll(){
   return sum;
 }
 
-//Character Creation stylesheet
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
-
-  item: {
-    flexDirection: 'row', 
-    justifyContent: 'space-between', 
-    marginBottom: 150
-  },
-
-  item2: {
-    flexDirection: 'column', 
-    justifyContent: 'space-between', 
-    margin: 5,
-    marginBottom: 20
-  },
-
-});
 
 
 export default CharacterCreateScreen;

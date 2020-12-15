@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button, Picker, ScrollView} from 'react-native'
 import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/native';
 import { userFetch } from '../../sharedComponents/userFetch.js';
+import { styles } from './styles.js';
 
 const CharacterSkillScreen = ({navigation, route}) => {
     //Getting params passed from HomeScreen
@@ -13,8 +14,5 @@ const CharacterSkillScreen = ({navigation, route}) => {
         </View>
     )
 }
-
-
-
 
 export default CharacterSkillScreen;
