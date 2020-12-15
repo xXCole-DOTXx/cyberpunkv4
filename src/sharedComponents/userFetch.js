@@ -15,6 +15,6 @@ export const userFetch = async () => {
     } catch (error) {
         console.log(error);
     }
-    userList.forEach(item => console.log(item)); //usreList contains all of the names. This works.
+    //userList.forEach(item => console.log(item)); //usreList contains all of the names. This works.
     return userList;
 }
