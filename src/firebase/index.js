@@ -23,5 +23,8 @@ export const createUser = (user) =>
 
 export const getAllUsers = () => firebase.firestore().collection('users').get(); 
 
+export const getUserInfo = (user) =>
+    firebase.firestore().collection('users').doc(user.userName).get(); //Not 100% sure this will work
+
 
 //https://rnfirebase.io/firestore/usage#snapshots  - good resourace for querying firebase

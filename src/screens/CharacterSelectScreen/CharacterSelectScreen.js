@@ -35,7 +35,10 @@ const CharacterSelectScreen = ({navigation, route}) => {
           <Button
                 title="Submit"
                         onPress={() => {
-                            console.log(selectedValue);
+                             /* 1. Navigate to the Character Skill Sheet route with params */
+                             navigation.navigate('CharacterSkillScreen', {
+                              playerName: selectedValue
+                            });
                         }}
                 color="#19AC52"
             />

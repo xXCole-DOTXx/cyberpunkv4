@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './src/screens/HomeScreen/HomeScreen';
 import CharacterCreateScreen from './src/screens/CharacterCreateScreen/CharacterCreateScreen';
 import CharacterSelectScreen from './src/screens/CharacterSelectScreen/CharacterSelectScreen';
+import CharacterSkillScreen from './src/screens/CharacterSkillScreen/CharacterSkillScreen';
 import * as firebase from './src/firebase'; 
 
 //Used this until the end of step 3.
@@ -33,6 +34,7 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen}></Stack.Screen>
         <Stack.Screen name="CharacterCreate" component={CharacterCreateScreen}></Stack.Screen>
         <Stack.Screen name="CharacterSelect" component={CharacterSelectScreen}></Stack.Screen>
+        <Stack.Screen name="CharacterSkillScreen" component={CharacterSkillScreen}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
