@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Button, View, Text } from 'react-native';
+import { Button, View, Text, StyleSheet } from 'react-native';
+import { styles } from './styles.js';
+
 
 const HomeScreen = ({navigation, route}) => {
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <View style={styles.container}>
         <Button
           title="Create a character"
           onPress={() => navigation.navigate('CharacterCreate')}
@@ -18,6 +20,5 @@ const HomeScreen = ({navigation, route}) => {
       </View>
     )
 }
-
 
 export default HomeScreen;
