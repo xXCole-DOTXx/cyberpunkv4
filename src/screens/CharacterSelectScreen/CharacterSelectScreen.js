@@ -5,6 +5,7 @@ import { userFetch } from '../../sharedComponents/userFetch.js';
 
 const CharacterSelectScreen = ({navigation, route}) => {
   const [results, setResults] = useState([]);
+  const [selectedValue, setSelectedValue] = useState("Choose..");
 
        React.useEffect(()=>{
         console.log('Select Screen loaded.')
@@ -15,19 +16,18 @@ const CharacterSelectScreen = ({navigation, route}) => {
         asyncFunc();
       },[])
 
-      console.log(results);
-
-      const numbers = [1, 2, 3, 4, 5];
-      const listItems = numbers.map((number) => <Text>{number}</Text>);
-
-      const charItems = results.map((character) => <Text>{character}</Text>);
-
-
     return (
         <View style={{ flex: 1, justifyContent: 'flex-start' }}>
             <Text>Select a character:</Text>
-            <Text>{listItems}</Text>
-            <Text>{charItems}</Text>
+            <Picker
+              mode="dropdown"
+              selectedValue={selectedValue}
+              onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+              >
+              {results.map((item, index) => {
+                  return (<Picker.Item label={item} value={index} key={index}/>) 
+              })}
+          </Picker>
       </View>
     )
 }
