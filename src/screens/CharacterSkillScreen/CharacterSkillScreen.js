@@ -17,6 +17,7 @@ const CharacterSkillScreen = ({navigation, route}) => {
         const asyncFunc = async () => {
           const character = await getCharInfo(playerName);
           setPlayer(character);
+          console.log(character.data().Role);
         }
         //Call the async function
         asyncFunc();
