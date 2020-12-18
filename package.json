@@ -13,7 +13,7 @@
     "@react-navigation/stack": "^5.12.8",
     "expo": "~39.0.2",
     "expo-status-bar": "~1.0.2",
-    "firebase": "^7.9.0",
+    "firebase": "^7.24.0",
     "props": "^0.3.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
