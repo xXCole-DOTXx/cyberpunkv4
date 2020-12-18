@@ -22,7 +22,7 @@ const CharacterSelectScreen = ({navigation, route}) => {
 
     return (
         <View style={styles.container}>
-            <Text>Select a character:</Text>
+            <Text style={{marginLeft: 130}}>Select a character:</Text>
             <Picker
               style={styles.charPicker}
               mode="dropdown"
@@ -34,6 +34,7 @@ const CharacterSelectScreen = ({navigation, route}) => {
               })}
           </Picker>
           <Button
+                style = {styles.button}
                 title="Submit"
                         onPress={() => {
                              /* 1. Navigate to the Character Skill Sheet route with params */

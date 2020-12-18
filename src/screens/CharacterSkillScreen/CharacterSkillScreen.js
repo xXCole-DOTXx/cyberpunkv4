@@ -24,8 +24,15 @@ const CharacterSkillScreen = ({navigation, route}) => {
       },[])
   
     return (
-        <View>
+        <View style={styles.container}>
             <Text>Player Name: {playerName}</Text>
+            <Text>Player Role: {player.data().Role}</Text>
+
+            <View style={styles.stats}>
+              <Text>Int: {player.data().stats.Int}</Text>
+              <Text>Ref: {player.data().stats.Ref}</Text>
+              <Text>Cool: {player.data().stats.Cool}</Text>
+            </View>
         </View>
     )
 }
