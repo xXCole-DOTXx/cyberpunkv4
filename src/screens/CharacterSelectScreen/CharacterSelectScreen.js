@@ -22,7 +22,7 @@ const CharacterSelectScreen = ({navigation, route}) => {
 
     return (
         <View style={styles.container}>
-            <Text style={{marginLeft: 130}}>Select a character:</Text>
+            <Text style={{marginLeft: 130}} h1>Select a character:</Text>
             <Picker
               style={styles.charPicker}
               mode="dropdown"

@@ -30,7 +30,7 @@ const CharacterCreateScreen = ({navigation, route}) =>{
             <Text>Character Screen</Text>
             <Text>You have {skillPoints} remaining.</Text>
             <TextInput
-            style={{height: 40, borderColor: 'gray', borderWidth: 1, width: 150 }}
+            style={{height: 40, borderColor: 'gray', borderWidth: 1, width: 200}}
             placeholder="Name"
             onChangeText={(val) => setName(val)}
             />
