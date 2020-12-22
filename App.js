@@ -1,4 +1,3 @@
-import { StyleSheet } from 'react-native';
 import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
@@ -9,8 +8,6 @@ import CharacterSelectScreen from './src/screens/CharacterSelectScreen/Character
 import CharacterSkillScreen from './src/screens/CharacterSkillScreen/CharacterSkillScreen';
 import * as firebase from './src/firebase'; 
 
-//Used this until the end of step 3.
-//https://www.freecodecamp.org/news/react-native-firebase-tutorial/
 //This app currently uses stateless function components :: https://stackoverflow.com/questions/57762163/const-vs-class-functions-is-react-native
 const Stack = createStackNavigator();
 
@@ -40,11 +37,3 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
