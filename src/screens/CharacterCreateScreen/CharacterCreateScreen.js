@@ -342,7 +342,9 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                 title="Submit"
                         onPress={() => {
                             userCreate(charName, selectedValue, charInt, charRef, charTech, charCool, charAttr, charLuck, charMa, charBody, charEmp);
-                            navigation.navigate('Home');
+                            navigation.navigate('CareerPointsScreen', {
+                              playerName: charName
+                            });
                         }}
                 color="#19AC52"
             />

@@ -6,6 +6,7 @@ import HomeScreen from './src/screens/HomeScreen/HomeScreen';
 import CharacterCreateScreen from './src/screens/CharacterCreateScreen/CharacterCreateScreen';
 import CharacterSelectScreen from './src/screens/CharacterSelectScreen/CharacterSelectScreen';
 import CharacterSkillScreen from './src/screens/CharacterSkillScreen/CharacterSkillScreen';
+import CareerPointsScreen from './src/screens/CareerPointsScreen/CareerPointsScreen';
 import * as firebase from './src/firebase'; 
 
 //This app currently uses stateless function components :: https://stackoverflow.com/questions/57762163/const-vs-class-functions-is-react-native
@@ -32,6 +33,7 @@ export default function App() {
         <Stack.Screen name="CharacterCreate" component={CharacterCreateScreen}></Stack.Screen>
         <Stack.Screen name="CharacterSelect" component={CharacterSelectScreen}></Stack.Screen>
         <Stack.Screen name="CharacterSkillScreen" component={CharacterSkillScreen}></Stack.Screen>
+        <Stack.Screen name="CareerPointsScreen" component={CareerPointsScreen}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
