@@ -70,7 +70,298 @@ const RockerboyCareerScreen = ({navigation, route}) => {
                   }}
                   />
                 </Text>
+
+                    {/* Awareness buttons */}
+                <Text style={{margin: 5}}>
+                  <Button 
+                      title="+"
+                              onPress={() => {
+                    if(skillPoints > 0 && awareness < 10){
+                    setAwareness(awareness + 1);
+                    setPoints(skillPoints - 1);
+                    }
+                    else{
+                      setAwareness(awareness);
+                    }
+                  }}
+                  />
+                  
+                  Awareness: {awareness}
+                
+                  <Button 
+                      title="-"
+                              onPress={() => {
+                    if(awareness > 0){
+                    setAwareness(awareness - 1);
+                    setPoints(skillPoints + 1);
+                    }
+                    else{
+                      setAwareness(awareness);
+                    }
+                  }}
+                  />
+                </Text>
+
+                  {/* Perform buttons */}
+                  <Text style={{margin: 5}}>
+                  <Button 
+                      title="+"
+                              onPress={() => {
+                    if(skillPoints > 0 && perform < 10){
+                    setPerform(perform + 1);
+                    setPoints(skillPoints - 1);
+                    }
+                    else{
+                      setPerform(perform);
+                    }
+                  }}
+                  />
+                  
+                  Perform: {perform}
+                
+                  <Button 
+                      title="-"
+                              onPress={() => {
+                    if(perform > 0){
+                    setPerform(perform - 1);
+                    setPoints(skillPoints + 1);
+                    }
+                    else{
+                      setPerform(perform);
+                    }
+                  }}
+                  />
+                </Text>
+
+                 {/* Style buttons */}
+                 <Text style={{margin: 5}}>
+                  <Button 
+                      title="+"
+                              onPress={() => {
+                    if(skillPoints > 0 && style < 10){
+                    setStyle(style + 1);
+                    setPoints(skillPoints - 1);
+                    }
+                    else{
+                      setStyle(style);
+                    }
+                  }}
+                  />
+                  
+                  Style: {style}
+                
+                  <Button 
+                      title="-"
+                              onPress={() => {
+                    if(style > 0){
+                    setStyle(style - 1);
+                    setPoints(skillPoints + 1);
+                    }
+                    else{
+                      setStyle(style);
+                    }
+                  }}
+                  />
+                </Text>
+
+                 {/* Composition buttons */}
+                 <Text style={{margin: 5}}>
+                  <Button 
+                      title="+"
+                              onPress={() => {
+                    if(skillPoints > 0 && composition < 10){
+                    setComposition(composition + 1);
+                    setPoints(skillPoints - 1);
+                    }
+                    else{
+                      setComposition(composition);
+                    }
+                  }}
+                  />
+                  
+                  Composition: {composition}
+                
+                  <Button 
+                      title="-"
+                              onPress={() => {
+                    if(composition > 0){
+                    setComposition(composition - 1);
+                    setPoints(skillPoints + 1);
+                    }
+                    else{
+                      setComposition(composition);
+                    }
+                  }}
+                  />
+                </Text>
+
+                 {/* Brawling buttons */}
+                 <Text style={{margin: 5}}>
+                  <Button 
+                      title="+"
+                              onPress={() => {
+                    if(skillPoints > 0 && brawling < 10){
+                    setBrawling(brawling + 1);
+                    setPoints(skillPoints - 1);
+                    }
+                    else{
+                      setBrawling(brawling);
+                    }
+                  }}
+                  />
+                  
+                  Brawling: {brawling}
+                
+                  <Button 
+                      title="-"
+                              onPress={() => {
+                    if(brawling > 0){
+                    setBrawling(brawling - 1);
+                    setPoints(skillPoints + 1);
+                    }
+                    else{
+                      setBrawling(brawling);
+                    }
+                  }}
+                  />
+                </Text>
+
+                 {/* Play Instrument buttons */}
+                 <Text style={{margin: 5}}>
+                  <Button 
+                      title="+"
+                              onPress={() => {
+                    if(skillPoints > 0 && playInstrument < 10){
+                    setPlayInstrument(playInstrument + 1);
+                    setPoints(skillPoints - 1);
+                    }
+                    else{
+                      setPlayInstrument(playInstrument);
+                    }
+                  }}
+                  />
+                  
+                  Play Instrument: {playInstrument}
+                
+                  <Button 
+                      title="-"
+                              onPress={() => {
+                    if(playInstrument > 0){
+                    setPlayInstrument(playInstrument - 1);
+                    setPoints(skillPoints + 1);
+                    }
+                    else{
+                      setPlayInstrument(playInstrument);
+                    }
+                  }}
+                  />
+                </Text>
+
+
+                 {/* Streetwise buttons */}
+                 <Text style={{margin: 5}}>
+                  <Button 
+                      title="+"
+                              onPress={() => {
+                    if(skillPoints > 0 && streetwise < 10){
+                    setStreetWise(streetwise + 1);
+                    setPoints(skillPoints - 1);
+                    }
+                    else{
+                      setStreetWise(streetwise);
+                    }
+                  }}
+                  />
+                  
+                  Streetwise: {streetwise}
+                
+                  <Button 
+                      title="-"
+                              onPress={() => {
+                    if(streetwise > 0){
+                    setStreetWise(streetwise - 1);
+                    setPoints(skillPoints + 1);
+                    }
+                    else{
+                      setStreetWise(streetwise);
+                    }
+                  }}
+                  />
+                </Text>
+
+                 {/* Persuasion buttons */}
+                 <Text style={{margin: 5}}>
+                  <Button 
+                      title="+"
+                              onPress={() => {
+                    if(skillPoints > 0 && persuasion < 10){
+                    setPersuasion(persuasion + 1);
+                    setPoints(skillPoints - 1);
+                    }
+                    else{
+                      setPersuasion(persuasion);
+                    }
+                  }}
+                  />
+                  
+                  Persuasion: {persuasion}
+                
+                  <Button 
+                      title="-"
+                              onPress={() => {
+                    if(persuasion > 0){
+                    setPersuasion(persuasion - 1);
+                    setPoints(skillPoints + 1);
+                    }
+                    else{
+                      setPersuasion(persuasion);
+                    }
+                  }}
+                  />
+                </Text>
+
+                 {/* Seduction buttons */}
+                 <Text style={{margin: 5}}>
+                  <Button 
+                      title="+"
+                              onPress={() => {
+                    if(skillPoints > 0 && seduction < 10){
+                    setSeduction(seduction + 1);
+                    setPoints(skillPoints - 1);
+                    }
+                    else{
+                      setSeduction(seduction);
+                    }
+                  }}
+                  />
+                  
+                  Seduction: {seduction}
+                
+                  <Button 
+                      title="-"
+                              onPress={() => {
+                    if(seduction > 0){
+                    setSeduction(seduction - 1);
+                    setPoints(skillPoints + 1);
+                    }
+                    else{
+                      setSeduction(seduction);
+                    }
+                  }}
+                  />
+                </Text>
+
             </View>
+
+            <Button
+                title="Submit"
+                        onPress={() => {
+                              navigation.navigate('RockerboyCareerScreen', {
+                                Player: player
+                              });
+                        }}
+                color="#19AC52"
+            />
         </View>
     )
 }
