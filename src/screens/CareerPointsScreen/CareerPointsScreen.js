@@ -7,7 +7,9 @@ import { getCharInfo } from '../../sharedComponents/getCharInfo.js';
 const CareerPointsScreen = ({navigation, route}) => {
     //Getting params passed from HomeScreen
     const { playerName } = route.params;
-    const [player, setPlayer] = useState();
+    const [player, setPlayer] = useState(); //Examples of using hooks.
+    const [skillPoints, setPoints] =useState(40); 
+    const [special, setSpecial] = useState(0);
 
      //Using React.useEffect to simulate React's #componentDidMount
      React.useEffect(()=>{
@@ -25,20 +27,18 @@ const CareerPointsScreen = ({navigation, route}) => {
     return (
         <View style={styles.container}>
             {player?.data()?.userName && <Text>{player?.data()?.userName}</Text>}
+            {player?.data()?.Role == "Solo" && <Text>{player?.data()?.Role}</Text>}
 
-            <View style={styles.stats}>
-              {player?.data()?.stats && <Text>Int: {player?.data()?.stats.Int}</Text>}
-              {player?.data()?.stats && <Text>Ref: {player?.data()?.stats.Ref}</Text>}
-              {player?.data()?.stats && <Text>Tech: {player?.data()?.stats.Tech}</Text>}
-              {player?.data()?.stats && <Text>Cool: {player?.data()?.stats.Cool}</Text>}
-            </View>
-            <View style={styles.stats}>
-              {player?.data()?.stats && <Text>Attr: {player?.data()?.stats.Attr}</Text>}
-              {player?.data()?.stats && <Text>Luck: {player?.data()?.stats.Luck}</Text>}
-              {player?.data()?.stats && <Text>MA: {player?.data()?.stats.MA}</Text>}
-              {player?.data()?.stats && <Text>Body: {player?.data()?.stats.Body}</Text>}
-              {player?.data()?.stats && <Text>Emp: {player?.data()?.stats.Emp}</Text>}
-            </View>
+            {player?.data()?.Role == "Rockerboy" && 
+            <View>
+            
+            </View>}
+
+            {player?.data()?.Role == "Solo" && 
+            <View>
+      
+            </View>}
+
         </View>
     )
 }
