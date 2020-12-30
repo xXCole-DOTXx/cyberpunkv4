@@ -356,8 +356,17 @@ const RockerboyCareerScreen = ({navigation, route}) => {
             <Button
                 title="Submit"
                         onPress={() => {
-                              navigation.navigate('RockerboyCareerScreen', {
-                                Player: player
+                              navigation.navigate('SkillScreen', {
+                                playerName: playerName,
+                                Awareness: awareness,
+                                Perform: perform,
+                                Style: style,
+                                Composition: composition,
+                                Brawling: brawling,
+                                PlayInstrument: playInstrument,
+                                Streetwise: streetwise,
+                                Persuasion: persuasion,
+                                Seduction: seduction
                               });
                         }}
                 color="#19AC52"
