@@ -3,6 +3,8 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { MaterialCommunityIcons} from 'react-native-vector-icons';
 import HomeScreen from './src/screens/HomeScreen/HomeScreen';
 import CharacterCreateScreen from './src/screens/CharacterCreateScreen/CharacterCreateScreen';
 import CharacterSelectScreen from './src/screens/CharacterSelectScreen/CharacterSelectScreen';
@@ -15,6 +17,7 @@ import * as firebase from './src/firebase';
 //This app currently uses stateless function components :: https://stackoverflow.com/questions/57762163/const-vs-class-functions-is-react-native
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
 
@@ -40,12 +43,24 @@ export default function App() {
           <Stack.Screen name="CareerPointsScreen" component={CareerPointsScreen}></Stack.Screen>
           <Stack.Screen name="RockerboyCareerScreen" component={RockerboyCareerScreen}></Stack.Screen>
         </Stack.Navigator>
+  
+  createBottomTabs = () => 
+        <Tab.Navigator>
+          <Tab.Screen name="Home" component={createHomeStack} options={{tabBarIcon : ({color}) => (
+            <MaterialCommunityIcons name="home" color={color} size={26} />
+          ),
+              }} />
+          <Tab.Screen name="Select a Character" component={CharacterSelectScreen} options={{tabBarIcon : ({color}) => (
+            <MaterialCommunityIcons name="meho" color={color} size={26} />
+          ),
+              }}/>
+        </Tab.Navigator>
 
   return (
     <NavigationContainer initialRouteName ='Home'>
       <Drawer.Navigator>
-        <Drawer.Screen name="Home" component={createHomeStack} />
-        <Drawer.Screen name="Users" component={CharacterSelectScreen} />
+        <Drawer.Screen name="Home" component={createHomeStack, createBottomTabs} />
+        <Drawer.Screen name="Select a Character" component={CharacterSelectScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
