@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { MaterialCommunityIcons} from 'react-native-vector-icons';
+import { MaterialCommunityIcons} from 'react-native-vector-icons'; //Here is a list of the icons: https://oblador.github.io/react-native-vector-icons/
 import HomeScreen from './src/screens/HomeScreen/HomeScreen';
 import CharacterCreateScreen from './src/screens/CharacterCreateScreen/CharacterCreateScreen';
 import CharacterSelectScreen from './src/screens/CharacterSelectScreen/CharacterSelectScreen';
@@ -50,7 +50,7 @@ export default function App() {
           <MaterialCommunityIcons name="home" color={color} size={26} />
         ),
             }} />
-      <Tab.Screen name="Select a Character" component={CharacterSelectScreen} options={{tabBarIcon : ({color}) => (
+      <Tab.Screen name="Toons" component={CharacterSelectScreen} options={{tabBarIcon : ({color}) => (
           <MaterialCommunityIcons name="account-multiple" color={color} size={26} />
         ),
             }}/>
