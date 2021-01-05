@@ -45,16 +45,16 @@ export default function App() {
         </Stack.Navigator>
   
   createBottomTabs = () => 
-        <Tab.Navigator>
-          <Tab.Screen name="Home" component={createHomeStack} options={{tabBarIcon : ({color}) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
-          ),
-              }} />
-          <Tab.Screen name="Select a Character" component={CharacterSelectScreen} options={{tabBarIcon : ({color}) => (
-            <MaterialCommunityIcons name="meho" color={color} size={26} />
-          ),
-              }}/>
-        </Tab.Navigator>
+  <Tab.Navigator>
+      <Tab.Screen name="Home" component={createHomeStack} options={{tabBarIcon : ({color}) => (
+          <MaterialCommunityIcons name="home" color={color} size={26} />
+        ),
+            }} />
+      <Tab.Screen name="Select a Character" component={CharacterSelectScreen} options={{tabBarIcon : ({color}) => (
+          <MaterialCommunityIcons name="account-multiple" color={color} size={26} />
+        ),
+            }}/>
+  </Tab.Navigator>
 
   return (
     <NavigationContainer initialRouteName ='Home'>
