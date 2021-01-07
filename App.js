@@ -11,6 +11,7 @@ import CharacterSelectScreen from './src/screens/CharacterSelectScreen/Character
 import CharacterSkillScreen from './src/screens/CharacterSkillScreen/CharacterSkillScreen';
 import CareerPointsScreen from './src/screens/CareerPointsScreen/CareerPointsScreen'; //Maybe don't need
 import RockerboyCareerScreen from './src/screens/CareerPointsScreen/RockerboyCareerScreen';
+import SoloCareerScreen from './src/screens/CareerPointsScreen/SoloCareerScreen';
 import SkillScreen from './src/screens/CharacterSkillScreen/SkillScreen';
 import * as firebase from './src/firebase'; 
 
@@ -42,6 +43,7 @@ export default function App() {
           <Stack.Screen name="SkillScreen" component={SkillScreen}></Stack.Screen>
           <Stack.Screen name="CareerPointsScreen" component={CareerPointsScreen}></Stack.Screen>
           <Stack.Screen name="RockerboyCareerScreen" component={RockerboyCareerScreen}></Stack.Screen>
+          <Stack.Screen name="SoloCareerScreen" component={SoloCareerScreen}></Stack.Screen>
         </Stack.Navigator>
   
   createBottomTabs = () => 

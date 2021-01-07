@@ -18,6 +18,18 @@ export const userCreate = async (selectedName, selectedRole, charInt, charRef, c
               Body: charBody,
               Emp: charEmp
             },
+            Spcial_Abilities : {
+                Authority : 0,
+                Charismatic_Leadership : 0,
+                Combat_Sense : 0,
+                Credibility : 0,
+                Family : 0,
+                Interface : 0,
+                Jury_Rig : 0,
+                Midical_Tech : 0,
+                Resources : 0,
+                Streetdeal : 0
+            },
             Attractivness : {
                 Personal_Grooming: 0,
                 Wardrobe_Style: 0
