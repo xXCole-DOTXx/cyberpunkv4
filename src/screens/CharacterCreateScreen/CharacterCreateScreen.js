@@ -346,6 +346,10 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                               navigation.navigate('RockerboyCareerScreen', {
                                 playerName: charName
                               })
+                            }else if(selectedValue == "Rockerboy"){
+                              navigation.navigate('SoloCareerScreen', {
+                                playerName: charName
+                              })
                             };
                         }}
                 color="#19AC52"
