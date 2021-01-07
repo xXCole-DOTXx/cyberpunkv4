@@ -14,6 +14,7 @@ import RockerboyCareerScreen from './src/screens/CareerPointsScreen/RockerboyCar
 import SoloCareerScreen from './src/screens/CareerPointsScreen/SoloCareerScreen';
 import SkillScreen from './src/screens/CharacterSkillScreen/SkillScreen';
 import * as firebase from './src/firebase'; 
+import { Provider as PaperProvider } from 'react-native-paper';
 
 //This app currently uses stateless function components :: https://stackoverflow.com/questions/57762163/const-vs-class-functions-is-react-native
 const Stack = createStackNavigator();
@@ -59,12 +60,14 @@ export default function App() {
   </Tab.Navigator>
 
   return (
-    <NavigationContainer initialRouteName ='Home'>
-      <Drawer.Navigator>
-        <Drawer.Screen name="Home" component={createHomeStack, createBottomTabs} />
-        <Drawer.Screen name="Select a Character" component={CharacterSelectScreen} />
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <PaperProvider>
+      <NavigationContainer initialRouteName ='Home'>
+        <Drawer.Navigator>
+          <Drawer.Screen name="Home" component={createHomeStack, createBottomTabs} />
+          <Drawer.Screen name="Select a Character" component={CharacterSelectScreen} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </PaperProvider>
   );
 }
 
