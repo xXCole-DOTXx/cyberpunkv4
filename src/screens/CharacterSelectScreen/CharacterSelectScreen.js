@@ -38,7 +38,7 @@ const CharacterSelectScreen = ({navigation, route}) => {
                 title="Submit"
                         onPress={() => {
                              /* 1. Navigate to the Character Skill Sheet route with params */
-                             navigation.navigate('CharacterSkillScreen', {
+                             navigation.navigate('SkillSheet', {
                               playerName: selectedValue
                             });
                         }}

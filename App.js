@@ -41,7 +41,7 @@ export default function App() {
           <Stack.Screen name="CharacterCreate" component={CharacterCreateScreen}></Stack.Screen>
           <Stack.Screen name="CharacterSelect" component={CharacterSelectScreen}></Stack.Screen>
           <Stack.Screen name="CharacterSkillScreen" component={CharacterSkillScreen}></Stack.Screen>
-          <Stack.Screen name="SkillScreen" component={SkillScreen}></Stack.Screen>
+          <Stack.Screen name="SkillSheet" component={SkillScreen}></Stack.Screen>
           <Stack.Screen name="CareerPointsScreen" component={CareerPointsScreen}></Stack.Screen>
           <Stack.Screen name="RockerboyCareerScreen" component={RockerboyCareerScreen}></Stack.Screen>
           <Stack.Screen name="SoloCareerScreen" component={SoloCareerScreen}></Stack.Screen>
