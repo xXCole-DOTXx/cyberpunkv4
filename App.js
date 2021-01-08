@@ -9,7 +9,6 @@ import HomeScreen from './src/screens/HomeScreen/HomeScreen';
 import CharacterCreateScreen from './src/screens/CharacterCreateScreen/CharacterCreateScreen';
 import CharacterSelectScreen from './src/screens/CharacterSelectScreen/CharacterSelectScreen';
 import CharacterSkillScreen from './src/screens/CharacterSkillScreen/CharacterSkillScreen';
-import CareerPointsScreen from './src/screens/CareerPointsScreen/CareerPointsScreen'; //Maybe don't need
 import RockerboyCareerScreen from './src/screens/CareerPointsScreen/RockerboyCareerScreen';
 import SoloCareerScreen from './src/screens/CareerPointsScreen/SoloCareerScreen';
 import SkillScreen from './src/screens/CharacterSkillScreen/SkillScreen';
@@ -42,7 +41,6 @@ export default function App() {
           <Stack.Screen name="CharacterSelect" component={CharacterSelectScreen}></Stack.Screen>
           <Stack.Screen name="CharacterSkillScreen" component={CharacterSkillScreen}></Stack.Screen>
           <Stack.Screen name="SkillSheet" component={SkillScreen}></Stack.Screen>
-          <Stack.Screen name="CareerPointsScreen" component={CareerPointsScreen}></Stack.Screen>
           <Stack.Screen name="RockerboyCareerScreen" component={RockerboyCareerScreen}></Stack.Screen>
           <Stack.Screen name="SoloCareerScreen" component={SoloCareerScreen}></Stack.Screen>
         </Stack.Navigator>
