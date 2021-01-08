@@ -350,6 +350,10 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                               navigation.navigate('SoloCareerScreen', {
                                 playerName: charName
                               })
+                            }else if(selectedValue == "Nomad"){
+                              navigation.navigate('NomadCareerScreen', {
+                                playerName: charName
+                              })
                             };
                         }}
                 color="#19AC52"

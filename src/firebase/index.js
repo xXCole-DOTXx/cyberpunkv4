@@ -12,6 +12,8 @@ const firebaseConfig = {
     measurementId: "G-JGRZT5YX0Q"
 };
 
+//@@@@@@@@@ TEST THESE VARIABLES TO MAKE SURE THAT THEY DONT MESS UP DESPITE BEING THE SAME NAME @@@@@@@@@@@@@@@@@@
+
 export const init = () => {
     return firebase.initializeApp(firebaseConfig);
 }
@@ -52,6 +54,20 @@ export const initializeSolo = (playerName, Combat_Sense, Awareness_Notice, Handg
         "Cool.Streetwise": streetwise,
         "Empathy.Persuasion_Fast_Talk": persuasion,
         "Empathy.Seduction": seduction
+    });
+
+    export const initializeNomad = (playerName, family, awareness, endurance, melee, rifle, drive, basicTech, wildernessSurvival, brawling, athletics) =>
+    firebase.firestore().collection('users').doc(playerName).update({
+        "Spcial_Abilities.Family": family,
+        "Intelligence.Awareness_Notice": awareness,
+        "Body.Endurance": endurance,
+        "Reflex.Melee": melee,
+        "Reflex.Rifle": rifle,
+        "Reflex.Brawling": brawling,
+        "Reflex.Driving": drive,
+        "Technology.Basic_Tech": basicTech,
+        "Intelligence.Wilderness_Survival": wildernessSurvival,
+        "Reflex.Athletics": athletics
     });
 
 
