@@ -5,7 +5,7 @@ import { styles } from './styles.js';
 import { getCharInfo } from '../../sharedComponents/getCharInfo.js';
 import { initializeNomad } from '../../firebase/index.js'; 
 
-const RockerboyCareerScreen = ({navigation, route}) => {
+const NomadCareerScreen = ({navigation, route}) => {
     //Getting params passed from HomeScreen
     const { playerName } = route.params;
     const [player, setPlayer] = useState(); //Examples of using hooks.
@@ -370,4 +370,4 @@ const RockerboyCareerScreen = ({navigation, route}) => {
     )
 }
 
-export default RockerboyCareerScreen;
+export default NomadCareerScreen;
