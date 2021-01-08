@@ -26,5 +26,19 @@ export const getAllUsers = () => firebase.firestore().collection('users').get();
 export const getUserInfo = (user) =>
     firebase.firestore().collection('users').doc(user).get();
 
+export const initializeSolo = (playerName, Combat_Sense, Awareness_Notice, Handgun, Brawling, Melee, Weapons_Tech, Rifle, Athletics, Submachinegun, Stealth) =>
+    firebase.firestore().collection('users').doc(playerName).update({
+        "Spcial_Abilities.Combat_Sense": Combat_Sense,
+        "Intelligence.Awareness_Notice": Awareness_Notice,
+        "Reflex.Handgun": Handgun,
+        "Reflex.Brawling": Brawling,
+        "Reflex.Melee": Melee,
+        //I cant find weapons tech??
+        "Reflex.Rifle": Rifle,
+        "Reflex.Athletics": Athletics,
+        "Reflex.Submachinegun": Submachinegun,
+        "Reflex.Stealth": Stealth
+    });
+
 
 //https://rnfirebase.io/firestore/usage#snapshots  - good resourace for querying firebase

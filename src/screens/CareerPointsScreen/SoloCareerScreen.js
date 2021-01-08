@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button, Picker, Sc
 import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/native';
 import { styles } from './styles.js';
 import { getCharInfo } from '../../sharedComponents/getCharInfo.js';
+import { initializeSolo } from '../../firebase/index.js';
 
 const SoloCareerScreen = ({navigation, route}) => {
     //Getting params passed from HomeScreen
@@ -19,7 +20,6 @@ const SoloCareerScreen = ({navigation, route}) => {
     const [athletics, setAthletics] =useState(0);
     const [submachinegun, setSubmachinegun] =useState(0);
     const [stealth, setStealth] =useState(0);
-  
 
      //Using React.useEffect to simulate React's #componentDidMount
      React.useEffect(()=>{
@@ -35,6 +35,7 @@ const SoloCareerScreen = ({navigation, route}) => {
   
 
     return (
+      <ScrollView>
         <View style={styles.container}>
             {player?.data()?.userName && <Text>{player?.data()?.userName}</Text>}
             <Text>You have {skillPoints} remaining.</Text>
@@ -91,7 +92,7 @@ const SoloCareerScreen = ({navigation, route}) => {
                   <Button 
                       title="-"
                               onPress={() => {
-                    if(awareness > 0){
+                    if(awareness_Notice > 0){
                     setAwareness_Notice(awareness_Notice - 1);
                     setPoints(skillPoints + 1);
                     }
@@ -352,27 +353,20 @@ const SoloCareerScreen = ({navigation, route}) => {
                 </Text>
 
             </View>
+            
 
             <Button
                 title="Submit"
                         onPress={() => {
-                              navigation.navigate('SkillScreen', {
-                                playerName: playerName,
-                                Combat_Sense: combat_Sense,
-                                Awareness: awareness_Notice,
-                                Handgun: handgun,
-                                Brawling: brawling,
-                                Melee: melee,
-                                Weapons_Tech: weapons_Tech,
-                                Rifle: rifle,
-                                Athletics: athletics,
-                                Submachinegun: submachinegun,
-                                Stealth: stealth
+                              initializeSolo(playerName, combat_Sense, awareness_Notice, handgun, brawling, melee, weapons_Tech, rifle, athletics, submachinegun, stealth);
+                              navigation.navigate('SkillSheet', {
+                                playerName: playerName
                               });
                         }}
                 color="#19AC52"
             />
         </View>
+      </ScrollView>
     )
 }
 

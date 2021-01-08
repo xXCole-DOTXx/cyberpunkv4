@@ -346,7 +346,7 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                               navigation.navigate('RockerboyCareerScreen', {
                                 playerName: charName
                               })
-                            }else if(selectedValue == "Rockerboy"){
+                            }else if(selectedValue == "Solo"){
                               navigation.navigate('SoloCareerScreen', {
                                 playerName: charName
                               })

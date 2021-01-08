@@ -35,6 +35,7 @@ const RockerboyCareerScreen = ({navigation, route}) => {
   
 
     return (
+      <ScrollView>
         <View style={styles.container}>
             {player?.data()?.userName && <Text>{player?.data()?.userName}</Text>}
             <Text>You have {skillPoints} remaining.</Text>
@@ -359,12 +360,12 @@ const RockerboyCareerScreen = ({navigation, route}) => {
                               navigation.navigate('SkillScreen', {
                                 playerName: playerName,
                                 Leadership: leadership,
-                                Awareness: awareness,
+                                Awareness_Notice: awareness,
                                 Perform: perform,
-                                Style: style,
+                                Wardrobe_Style: style,
                                 Composition: composition,
                                 Brawling: brawling,
-                                PlayInstrument: playInstrument,
+                                Play_Instrument: playInstrument,
                                 Streetwise: streetwise,
                                 Persuasion: persuasion,
                                 Seduction: seduction
@@ -373,6 +374,7 @@ const RockerboyCareerScreen = ({navigation, route}) => {
                 color="#19AC52"
             />
         </View>
+      </ScrollView>
     )
 }
 
