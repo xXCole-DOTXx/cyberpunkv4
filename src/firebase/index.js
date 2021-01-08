@@ -40,5 +40,19 @@ export const initializeSolo = (playerName, Combat_Sense, Awareness_Notice, Handg
         "Reflex.Stealth": Stealth
     });
 
+    export const initializeRockerboy = (playerName, leadership, awareness, perform, style, composition, brawling, playInstrument, streetwise, persuasion, seduction) =>
+    firebase.firestore().collection('users').doc(playerName).update({
+        "Spcial_Abilities.Charismatic_Leadership": leadership,
+        "Intelligence.Awareness_Notice": awareness,
+        "Empathy.Perform": perform,
+        "Attractiveness.Wardrobe_Style": style,
+        "Intelligence.Composition": composition,
+        "Reflex.Brawling": brawling,
+        "Technology.Play_Instrument": playInstrument,
+        "Cool.Streetwise": streetwise,
+        "Empathy.Persuasion_Fast_Talk": persuasion,
+        "Empathy.Seduction": seduction
+    });
+
 
 //https://rnfirebase.io/firestore/usage#snapshots  - good resourace for querying firebase

@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button, Picker, Sc
 import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/native';
 import { styles } from './styles.js';
 import { getCharInfo } from '../../sharedComponents/getCharInfo.js';
+import { initializeRockerboy } from '../../firebase/index.js';
 
 const RockerboyCareerScreen = ({navigation, route}) => {
     //Getting params passed from HomeScreen
@@ -356,21 +357,12 @@ const RockerboyCareerScreen = ({navigation, route}) => {
 
             <Button
                 title="Submit"
-                        onPress={() => {
-                              navigation.navigate('SkillScreen', {
-                                playerName: playerName,
-                                Leadership: leadership,
-                                Awareness_Notice: awareness,
-                                Perform: perform,
-                                Wardrobe_Style: style,
-                                Composition: composition,
-                                Brawling: brawling,
-                                Play_Instrument: playInstrument,
-                                Streetwise: streetwise,
-                                Persuasion: persuasion,
-                                Seduction: seduction
-                              });
-                        }}
+                onPress={() => {
+                  initializeRockerboy(playerName, leadership, awareness, perform, style, composition, brawling, playInstrument, streetwise, persuasion, seduction);
+                  navigation.navigate('SkillSheet', {
+                    playerName: playerName
+                  });
+            }}
                 color="#19AC52"
             />
         </View>
