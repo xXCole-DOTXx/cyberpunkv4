@@ -5,7 +5,7 @@ export const getCharInfo = async (playerName) => {
     try{
         const user = await firebase.getUserInfo(playerName);
         // user is a DocumentSnapshot (hopefully)
-        return user;
+        return user.data();
     } catch (error) {
         console.log(error);
     }
