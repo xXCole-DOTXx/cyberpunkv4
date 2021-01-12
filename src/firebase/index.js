@@ -70,5 +70,19 @@ export const initializeSolo = (playerName, Combat_Sense, Awareness_Notice, Handg
         "Reflex.Athletics": athletics
     });
 
+    export const initializeNetRunner = (playerName, netInterface, awareness, basicTech, education, system_knowledge, cyberTech, cyberDeck_design, composition, electronics, programming) =>
+    firebase.firestore().collection('users').doc(playerName).update({
+        "Spcial_Abilities.Interface": netInterface,
+        "Intelligence.Awareness_Notice": awareness,
+        "Technology.Basic_Tech": basicTech,
+        "Intelligence.Education_Gen_Knowledge": education,
+        "Technology.System_Knowledge": system_knowledge,
+        "Technology.CyberTech": cyberTech,
+        "Technology.Cyberdeck_Design": cyberDeck_design,
+        "Intelligence.Composition": composition,
+        "Technology.Electronics": electronics,
+        "Intelligence.Programming": programming
+    });
+
 
 //https://rnfirebase.io/firestore/usage#snapshots  - good resourace for querying firebase

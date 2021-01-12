@@ -354,6 +354,10 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                               navigation.navigate('NomadCareerScreen', {
                                 playerName: charName
                               })
+                            }else if(selectedValue == "NetRunner"){
+                              navigation.navigate('NetRunnerCareerScreen', {
+                                playerName: charName
+                              })
                             };
                         }}
                 color="#19AC52"

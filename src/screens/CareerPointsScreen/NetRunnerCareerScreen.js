@@ -3,23 +3,23 @@ import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button, Picker, Sc
 import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/native';
 import { styles } from './styles.js';
 import { getCharInfo } from '../../sharedComponents/getCharInfo.js';
-import { initializeRockerboy } from '../../firebase/index.js';
+import { initializeNetRunner } from '../../firebase/index.js'; 
 
-const RockerboyCareerScreen = ({navigation, route}) => {
+const NetRunnerCareerScreen = ({navigation, route}) => {
     //Getting params passed from HomeScreen
     const { playerName } = route.params;
     const [player, setPlayer] = useState(); //Examples of using hooks.
     const [skillPoints, setPoints] =useState(40); 
-    const [leadership, setLeadership] = useState(0);
+    const [netInterface, setNetInterface] = useState(0);
     const [awareness, setAwareness] = useState(0);
-    const [perform, setPerform] = useState(0);
-    const [style, setStyle] = useState(0);
+    const [basicTech, setBasicTech] = useState(0);
+    const [education, setEducation] = useState(0);
+    const [system_knowledge, setSystem_Knowledge] = useState(0);
+    const [cyberTech, setCyberTech] = useState(0);
+    const [cyberDeck_design, setCyberDeck_Design] = useState(0);
     const [composition, setComposition] = useState(0);
-    const [brawling, setBrawling] = useState(0);
-    const [playInstrument, setPlayInstrument] = useState(0);
-    const [streetwise, setStreetWise] = useState(0);
-    const [persuasion, setPersuasion] = useState(0);
-    const [seduction, setSeduction] = useState(0);
+    const [electronics, setElectronics] = useState(0);
+    const [programming, setProgramming] = useState(0);
   
 
      //Using React.useEffect to simulate React's #componentDidMount
@@ -38,36 +38,36 @@ const RockerboyCareerScreen = ({navigation, route}) => {
     return (
       <ScrollView>
         <View style={styles.container}>
-            {player?.data()?.userName && <Text>{player?.data()?.userName}</Text>}
+        {player?.data()?.userName && <Text>{player?.data()?.userName}</Text>}
             <Text>You have {skillPoints} remaining.</Text>
 
             <View style={styles.item2}>
-                {/* Leadership buttons */}
+                {/* netnetInterface buttons */}
                 <Text style={{margin: 5}}>
                   <Button 
                       title="+"
                               onPress={() => {
-                    if(skillPoints > 0 && leadership < 10){
-                    setLeadership(leadership + 1);
+                    if(skillPoints > 0 && netInterface < 10){
+                    setNetInterface(netInterface + 1);
                     setPoints(skillPoints - 1);
                     }
                     else{
-                      setLeadership(leadership);
+                      setNetInterface(netInterface);
                     }
                   }}
                   />
                   
-                  Charismatic Leadership: {leadership}
+                  Interface: {netInterface}
                 
                   <Button 
                       title="-"
                               onPress={() => {
-                    if(leadership > 0){
-                    setLeadership(leadership - 1);
+                    if(netInterface > 0){
+                    setNetInterface(netInterface - 1);
                     setPoints(skillPoints + 1);
                     }
                     else{
-                      setLeadership(leadership);
+                      setNetInterface(netInterface);
                     }
                   }}
                   />
@@ -104,63 +104,125 @@ const RockerboyCareerScreen = ({navigation, route}) => {
                   />
                 </Text>
 
-                  {/* Perform buttons */}
+                  {/* Education buttons */}
                   <Text style={{margin: 5}}>
                   <Button 
                       title="+"
                               onPress={() => {
-                    if(skillPoints > 0 && perform < 10){
-                    setPerform(perform + 1);
+                    if(skillPoints > 0 && education < 10){
+                    setEducation(education + 1);
                     setPoints(skillPoints - 1);
                     }
                     else{
-                      setPerform(perform);
+                      setEducation(education);
                     }
                   }}
                   />
                   
-                  Perform: {perform}
+                  Education: {education}
                 
                   <Button 
                       title="-"
                               onPress={() => {
-                    if(perform > 0){
-                    setPerform(perform - 1);
+                    if(education > 0){
+                    setEducation(education - 1);
                     setPoints(skillPoints + 1);
                     }
                     else{
-                      setPerform(perform);
+                      setEducation(education);
                     }
                   }}
                   />
                 </Text>
 
-                 {/* Style buttons */}
+                 {/* System Knowledge buttons */}
                  <Text style={{margin: 5}}>
                   <Button 
                       title="+"
                               onPress={() => {
-                    if(skillPoints > 0 && style < 10){
-                    setStyle(style + 1);
+                    if(skillPoints > 0 && system_knowledge < 10){
+                    setSystem_Knowledge(system_knowledge + 1);
                     setPoints(skillPoints - 1);
                     }
                     else{
-                      setStyle(style);
+                      setSystem_Knowledge(system_knowledge);
                     }
                   }}
                   />
                   
-                  Style: {style}
+                  System Knowledge: {system_knowledge}
                 
                   <Button 
                       title="-"
                               onPress={() => {
-                    if(style > 0){
-                    setStyle(style - 1);
+                    if(system_knowledge > 0){
+                    setSystem_Knowledge(system_knowledge - 1);
                     setPoints(skillPoints + 1);
                     }
                     else{
-                      setStyle(style);
+                      setSystem_Knowledge(system_knowledge);
+                    }
+                  }}
+                  />
+                </Text>
+
+                 {/* CyberTech buttons */}
+                 <Text style={{margin: 5}}>
+                  <Button 
+                      title="+"
+                              onPress={() => {
+                    if(skillPoints > 0 && cyberTech < 10){
+                    setCyberTech(cyberTech + 1);
+                    setPoints(skillPoints - 1);
+                    }
+                    else{
+                      setCyberTech(cyberTech);
+                    }
+                  }}
+                  />
+                  
+                  Cyber Tech: {cyberTech}
+                
+                  <Button 
+                      title="-"
+                              onPress={() => {
+                    if(cyberTech > 0){
+                    setCyberTech(cyberTech - 1);
+                    setPoints(skillPoints + 1);
+                    }
+                    else{
+                      setCyberTech(cyberTech);
+                    }
+                  }}
+                  />
+                </Text>
+
+                 {/* CyberDeck Design buttons */}
+                 <Text style={{margin: 5}}>
+                  <Button 
+                      title="+"
+                              onPress={() => {
+                    if(skillPoints > 0 && cyberDeck_design < 10){
+                    setCyberDeck_Design(cyberDeck_design + 1);
+                    setPoints(skillPoints - 1);
+                    }
+                    else{
+                      setCyberDeck_Design(cyberDeck_design);
+                    }
+                  }}
+                  />
+                  
+                  CyberDeck Design: {cyberDeck_design}
+                
+                  <Button 
+                      title="-"
+                              onPress={() => {
+                    if(cyberDeck_design > 0){
+                    setCyberDeck_Design(cyberDeck_design - 1);
+                    setPoints(skillPoints + 1);
+                    }
+                    else{
+                      setCyberDeck_Design(cyberDeck_design);
                     }
                   }}
                   />
@@ -197,157 +259,95 @@ const RockerboyCareerScreen = ({navigation, route}) => {
                   />
                 </Text>
 
-                 {/* Brawling buttons */}
+
+                 {/* Basic Tech buttons */}
                  <Text style={{margin: 5}}>
                   <Button 
                       title="+"
                               onPress={() => {
-                    if(skillPoints > 0 && brawling < 10){
-                    setBrawling(brawling + 1);
+                    if(skillPoints > 0 && basicTech < 10){
+                    setBasicTech(basicTech+ 1);
                     setPoints(skillPoints - 1);
                     }
                     else{
-                      setBrawling(brawling);
+                      setBasicTech(basicTech);
                     }
                   }}
                   />
                   
-                  Brawling: {brawling}
+                  Basic Tech: {basicTech}
                 
                   <Button 
                       title="-"
                               onPress={() => {
-                    if(brawling > 0){
-                    setBrawling(brawling - 1);
+                    if(basicTech > 0){
+                    setBasicTech(basicTech - 1);
                     setPoints(skillPoints + 1);
                     }
                     else{
-                      setBrawling(brawling);
+                      setBasicTech(basicTech);
                     }
                   }}
                   />
                 </Text>
 
-                 {/* Play Instrument buttons */}
+                 {/* Electronics buttons */}
                  <Text style={{margin: 5}}>
                   <Button 
                       title="+"
                               onPress={() => {
-                    if(skillPoints > 0 && playInstrument < 10){
-                    setPlayInstrument(playInstrument + 1);
+                    if(skillPoints > 0 && electronics < 10){
+                    setElectronics(electronics + 1);
                     setPoints(skillPoints - 1);
                     }
                     else{
-                      setPlayInstrument(playInstrument);
+                      setElectronics(electronics);
                     }
                   }}
                   />
                   
-                  Play Instrument: {playInstrument}
+                  Electronics: {electronics}
                 
                   <Button 
                       title="-"
                               onPress={() => {
-                    if(playInstrument > 0){
-                    setPlayInstrument(playInstrument - 1);
+                    if(electronics > 0){
+                    setElectronics(electronics - 1);
                     setPoints(skillPoints + 1);
                     }
                     else{
-                      setPlayInstrument(playInstrument);
+                      setElectronics(electronics);
                     }
                   }}
                   />
                 </Text>
 
-
-                 {/* Streetwise buttons */}
+                 {/* Programming buttons */}
                  <Text style={{margin: 5}}>
                   <Button 
                       title="+"
                               onPress={() => {
-                    if(skillPoints > 0 && streetwise < 10){
-                    setStreetWise(streetwise + 1);
+                    if(skillPoints > 0 && programming < 10){
+                    setProgramming(programming + 1);
                     setPoints(skillPoints - 1);
                     }
                     else{
-                      setStreetWise(streetwise);
+                      setProgramming(programming);
                     }
                   }}
                   />
                   
-                  Streetwise: {streetwise}
+                  Programming: {programming}
                 
                   <Button 
                       title="-"
                               onPress={() => {
-                    if(streetwise > 0){
-                    setStreetWise(streetwise - 1);
+                    if(programming > 0){
+                    setProgramming(programming - 1);
                     setPoints(skillPoints + 1);
                     }
                     else{
-                      setStreetWise(streetwise);
-                    }
-                  }}
-                  />
-                </Text>
-
-                 {/* Persuasion buttons */}
-                 <Text style={{margin: 5}}>
-                  <Button 
-                      title="+"
-                              onPress={() => {
-                    if(skillPoints > 0 && persuasion < 10){
-                    setPersuasion(persuasion + 1);
-                    setPoints(skillPoints - 1);
-                    }
-                    else{
-                      setPersuasion(persuasion);
-                    }
-                  }}
-                  />
-                  
-                  Persuasion: {persuasion}
-                
-                  <Button 
-                      title="-"
-                              onPress={() => {
-                    if(persuasion > 0){
-                    setPersuasion(persuasion - 1);
-                    setPoints(skillPoints + 1);
-                    }
-                    else{
-                      setPersuasion(persuasion);
-                    }
-                  }}
-                  />
-                </Text>
-
-                 {/* Seduction buttons */}
-                 <Text style={{margin: 5}}>
-                  <Button 
-                      title="+"
-                              onPress={() => {
-                    if(skillPoints > 0 && seduction < 10){
-                    setSeduction(seduction + 1);
-                    setPoints(skillPoints - 1);
-                    }
-                    else{
-                      setSeduction(seduction);
-                    }
-                  }}
-                  />
-                  
-                  Seduction: {seduction}
-                
-                  <Button 
-                      title="-"
-                              onPress={() => {
-                    if(seduction > 0){
-                    setSeduction(seduction - 1);
-                    setPoints(skillPoints + 1);
-                    }
-                    else{
-                      setSeduction(seduction);
+                      setProgramming(programming);
                     }
                   }}
                   />
@@ -358,7 +358,7 @@ const RockerboyCareerScreen = ({navigation, route}) => {
             <Button
                 title="Submit"
                 onPress={() => {
-                  initializeRockerboy(playerName, leadership, awareness, perform, style, composition, brawling, playInstrument, streetwise, persuasion, seduction);
+                  initializeNetRunner(playerName, netInterface, awareness, basicTech, education, system_knowledge, cyberTech, cyberDeck_design, composition, electronics, programming);
                   navigation.navigate('CharacterSkillScreen', {
                     playerName: playerName
                   });
@@ -370,4 +370,4 @@ const RockerboyCareerScreen = ({navigation, route}) => {
     )
 }
 
-export default RockerboyCareerScreen;
+export default NetRunnerCareerScreen;

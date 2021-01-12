@@ -359,7 +359,7 @@ const SoloCareerScreen = ({navigation, route}) => {
                 title="Submit"
                         onPress={() => {
                               initializeSolo(playerName, combat_Sense, awareness_Notice, handgun, brawling, melee, weapons_Tech, rifle, athletics, submachinegun, stealth);
-                              navigation.navigate('SkillSheet', {
+                              navigation.navigate('CharacterSkillScreen', {
                                 playerName: playerName
                               });
                         }}

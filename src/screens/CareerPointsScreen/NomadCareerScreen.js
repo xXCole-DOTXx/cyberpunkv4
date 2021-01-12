@@ -359,7 +359,7 @@ const NomadCareerScreen = ({navigation, route}) => {
                 title="Submit"
                 onPress={() => {
                   initializeNomad(playerName, family, awareness, endurance, melee, rifle, drive, basicTech, wildernessSurvival, brawling, athletics);
-                  navigation.navigate('SkillSheet', {
+                  navigation.navigate('CharacterSkillScreen', {
                     playerName: playerName
                   });
             }}
