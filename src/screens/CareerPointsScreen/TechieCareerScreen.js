@@ -3,23 +3,21 @@ import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button, Picker, Sc
 import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/native';
 import { styles } from './styles.js';
 import { getCharInfo } from '../../sharedComponents/getCharInfo.js';
-import { initializeCorp } from '../../firebase/index.js'; 
+import { initializeTechie } from '../../firebase/index.js'; 
 
-const CorpCareerScreen = ({navigation, route}) => {
+const TechieCareerScreen = ({navigation, route}) => {
     //Getting params passed from HomeScreen
     const { playerName } = route.params;
     const [player, setPlayer] = useState(); //Examples of using hooks.
     const [skillPoints, setPoints] =useState(40); 
-    const [resources, setResources] = useState(0);
+    const [juryRig, setJuryRig] = useState(0);
     const [awareness, setAwareness] = useState(0);
-    const [humanPerception, setHumanPerception] = useState(0);
+    const [basicTech, setBasicTech] = useState(0);
+    const [cyberTech, setCyberTech] = useState(0);
+    const [teaching, setTeaching] = useState(0);
     const [education, setEducation] = useState(0);
-    const [librarySearch, setLibrarySearch] = useState(0);
-    const [socail, setSocial] = useState(0);
-    const [persuasion, setPersuasion] = useState(0);
-    const [stockMarket, setStockMarket] = useState(0);
-    const [wardrobe_style, setWardrobe_Style] = useState(0);
-    const [personalGrooming, setPersonalGrooming] = useState(0);
+    const [electronics, setElectronics] = useState(0);
+    //NEED TO ADD 3 MORE OPTIONAL TECH SKILLS
   
 
      //Using React.useEffect to simulate React's #componentDidMount
@@ -42,32 +40,32 @@ const CorpCareerScreen = ({navigation, route}) => {
             <Text>You have {skillPoints} remaining.</Text>
 
             <View style={styles.item2}>
-                {/* Resources buttons */}
+                {/* Jury Rig buttons */}
                 <Text style={{margin: 5}}>
                   <Button 
                       title="+"
                               onPress={() => {
-                    if(skillPoints > 0 && resources < 10){
-                    setResources(resources + 1);
+                    if(skillPoints > 0 && juryRig < 10){
+                    setJuryRig(juryRig + 1);
                     setPoints(skillPoints - 1);
                     }
                     else{
-                      setResources(resources);
+                      setJuryRig(juryRig);
                     }
                   }}
                   />
                   
-                  Resources: {resources}
+                  Jury Rig: {juryRig}
                 
                   <Button 
                       title="-"
                               onPress={() => {
-                    if(resources > 0){
-                    setResources(resources - 1);
+                    if(juryRig > 0){
+                    setJuryRig(juryRig - 1);
                     setPoints(skillPoints + 1);
                     }
                     else{
-                      setResources(resources);
+                      setJuryRig(juryRig);
                     }
                   }}
                   />
@@ -135,219 +133,125 @@ const CorpCareerScreen = ({navigation, route}) => {
                   />
                 </Text>
 
-                 {/* Human Perception buttons */}
+                 {/* Basic Tech buttons */}
                  <Text style={{margin: 5}}>
                   <Button 
                       title="+"
                               onPress={() => {
-                    if(skillPoints > 0 && humanPerception < 10){
-                    setHumanPerception(humanPerception + 1);
+                    if(skillPoints > 0 && basicTech < 10){
+                    setBasicTech(basicTech + 1);
                     setPoints(skillPoints - 1);
                     }
                     else{
-                      setHumanPerception(humanPerception);
+                      setBasicTech(basicTech);
                     }
                   }}
                   />
                   
-                  Human Perception: {humanPerception}
+                  Basic Tech: {basicTech}
                 
                   <Button 
                       title="-"
                               onPress={() => {
-                    if(humanPerception > 0){
-                    setHumanPerception(humanPerception - 1);
+                    if(basicTech > 0){
+                    setBasicTech(basicTech - 1);
                     setPoints(skillPoints + 1);
                     }
                     else{
-                      setHumanPerception(humanPerception);
+                      setBasicTech(basicTech);
                     }
                   }}
                   />
                 </Text>
 
-                 {/* Library Search buttons */}
+                 {/* Cyber Tech buttons */}
                  <Text style={{margin: 5}}>
                   <Button 
                       title="+"
                               onPress={() => {
-                    if(skillPoints > 0 && librarySearch < 10){
-                    setLibrarySearch(librarySearch + 1);
+                    if(skillPoints > 0 && cyberTech < 10){
+                    setCyberTech(cyberTech + 1);
                     setPoints(skillPoints - 1);
                     }
                     else{
-                      setLibrarySearch(librarySearch);
+                      setCyberTech(cyberTech);
                     }
                   }}
                   />
                   
-                  Library Search: {librarySearch}
+                  Cyber Tech: {cyberTech}
                 
                   <Button 
                       title="-"
                               onPress={() => {
-                    if(librarySearch > 0){
-                    setLibrarySearch(librarySearch - 1);
+                    if(cyberTech > 0){
+                    setCyberTech(cyberTech - 1);
                     setPoints(skillPoints + 1);
                     }
                     else{
-                      setLibrarySearch(librarySearch);
+                      setCyberTech(cyberTech);
                     }
                   }}
                   />
                 </Text>
 
-                 {/* Socail buttons */}
+                 {/* Teaching buttons */}
                  <Text style={{margin: 5}}>
                   <Button 
                       title="+"
                               onPress={() => {
-                    if(skillPoints > 0 && socail < 10){
-                    setSocail(socail + 1);
+                    if(skillPoints > 0 && teaching < 10){
+                    setTeaching(teaching + 1);
                     setPoints(skillPoints - 1);
                     }
                     else{
-                      setSocial(socail);
+                      setTeaching(teaching);
                     }
                   }}
                   />
                   
-                  Socail: {socail}
+                  Teaching: {teaching}
                 
                   <Button 
                       title="-"
                               onPress={() => {
-                    if(socail > 0){
-                    setSocial(socail - 1);
+                    if(teaching > 0){
+                    setTeaching(teaching - 1);
                     setPoints(skillPoints + 1);
                     }
                     else{
-                      setSocial(socail);
+                      setTeaching(teaching);
                     }
                   }}
                   />
                 </Text>
 
-                 {/* Persuasion buttons */}
+                 {/* Electronics buttons */}
                  <Text style={{margin: 5}}>
                   <Button 
                       title="+"
                               onPress={() => {
-                    if(skillPoints > 0 && persuasion < 10){
-                    setPersuasion(persuasion + 1);
+                    if(skillPoints > 0 && electronics < 10){
+                    setElectronics(electronics + 1);
                     setPoints(skillPoints - 1);
                     }
                     else{
-                      setPersuasion(persuasion);
+                      setElectronics(electronics);
                     }
                   }}
                   />
                   
-                  Persuasion & Fast Talk: {persuasion}
+                  Electronics: {electronics}
                 
                   <Button 
                       title="-"
                               onPress={() => {
-                    if(persuasion > 0){
-                    setPersuasion(persuasion - 1);
+                    if(electronics > 0){
+                    setElectronics(electronics - 1);
                     setPoints(skillPoints + 1);
                     }
                     else{
-                      setPersuasion(persuasion);
-                    }
-                  }}
-                  />
-                </Text>
-
-
-                 {/* Stock Market buttons */}
-                 <Text style={{margin: 5}}>
-                  <Button 
-                      title="+"
-                              onPress={() => {
-                    if(skillPoints > 0 && stockMarket < 10){
-                    setStockMarket(stockMarket + 1);
-                    setPoints(skillPoints - 1);
-                    }
-                    else{
-                      setStockMarket(stockMarket);
-                    }
-                  }}
-                  />
-                  
-                  Stock Market: {stockMarket}
-                
-                  <Button 
-                      title="-"
-                              onPress={() => {
-                    if(stockMarket > 0){
-                    setStockMarket(stockMarket - 1);
-                    setPoints(skillPoints + 1);
-                    }
-                    else{
-                      setStockMarket(stockMarket);
-                    }
-                  }}
-                  />
-                </Text>
-
-                 {/* Wardrobe buttons */}
-                 <Text style={{margin: 5}}>
-                  <Button 
-                      title="+"
-                              onPress={() => {
-                    if(skillPoints > 0 && wardrobe_style < 10){
-                    setWardrobe_Style(wardrobe_style + 1);
-                    setPoints(skillPoints - 1);
-                    }
-                    else{
-                      setWardrobe_Style(wardrobe_style);
-                    }
-                  }}
-                  />
-                  
-                  Wardrobe & Style: {wardrobe_style}
-                
-                  <Button 
-                      title="-"
-                              onPress={() => {
-                    if(wardrobe_style > 0){
-                    setWardrobe_Style(wardrobe_style - 1);
-                    setPoints(skillPoints + 1);
-                    }
-                    else{
-                      setWardrobe_Style(wardrobe_style);
-                    }
-                  }}
-                  />
-                </Text>
-
-                 {/* Personal Grooming buttons */}
-                 <Text style={{margin: 5}}>
-                  <Button 
-                      title="+"
-                              onPress={() => {
-                    if(skillPoints > 0 && personalGrooming < 10){
-                    setPersonalGrooming(personalGrooming + 1);
-                    setPoints(skillPoints - 1);
-                    }
-                    else{
-                      setPersonalGrooming(personalGrooming);
-                    }
-                  }}
-                  />
-                  
-                  Personal Grooming: {personalGrooming}
-                
-                  <Button 
-                      title="-"
-                              onPress={() => {
-                    if(personalGrooming > 0){
-                    setPersonalGrooming(personalGrooming - 1);
-                    setPoints(skillPoints + 1);
-                    }
-                    else{
-                      setPersonalGrooming(personalGrooming);
+                      setElectronics(electronics);
                     }
                   }}
                   />
@@ -358,7 +262,7 @@ const CorpCareerScreen = ({navigation, route}) => {
             <Button
                 title="Submit"
                 onPress={() => {
-                  initializeCorp(playerName, resources, awareness, humanPerception, education, librarySearch, socail, persuasion, stockMarket, wardrobe_style, personalGrooming);
+                  initializeTechie(playerName, juryRig, awareness, basicTech, education, cyberTech, teaching, electronics);
                   navigation.navigate('CharacterSkillScreen', {
                     playerName: playerName
                   });
@@ -370,4 +274,4 @@ const CorpCareerScreen = ({navigation, route}) => {
     )
 }
 
-export default CorpCareerScreen;
+export default TechieCareerScreen;

@@ -47,7 +47,7 @@ export const initializeSolo = (playerName, Combat_Sense, Awareness_Notice, Handg
         "Spcial_Abilities.Charismatic_Leadership": leadership,
         "Intelligence.Awareness_Notice": awareness,
         "Empathy.Perform": perform,
-        "Attractiveness.Wardrobe_Style": style,
+        "Attractivness.Wardrobe_Style": style,
         "Intelligence.Composition": composition,
         "Reflex.Brawling": brawling,
         "Technology.Play_Instrument": playInstrument,
@@ -96,6 +96,18 @@ export const initializeSolo = (playerName, Combat_Sense, Awareness_Notice, Handg
         "Intelligence.Stock_Market": stockMarket,
         "Attractivness.Wardrobe_Style": wardrobe_style,
         "Attractivness.Personal_Grooming": personalGrooming
+    });
+
+    //Needs edited
+    export const initializeTechie = (playerName, juryRig, awareness, basicTech, education, cyberTech, teaching, electronics) =>
+    firebase.firestore().collection('users').doc(playerName).update({
+        "Spcial_Abilities.Jury_Rig": juryRig,
+        "Intelligence.Awareness_Notice": awareness,
+        "Technology.Basic_Tech": basicTech,
+        "Intelligence.Education_Gen_Knowledge": education,
+        "Technology.CyberTech": cyberTech,
+        "Intelligence.Teaching": teaching,
+        "Technology.Electronics": electronics
     });
 
 
