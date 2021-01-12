@@ -358,6 +358,10 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                               navigation.navigate('NetRunnerCareerScreen', {
                                 playerName: charName
                               })
+                            }else if(selectedValue == "Corp"){
+                              navigation.navigate('CorpCareerScreen', {
+                                playerName: charName
+                              })
                             };
                         }}
                 color="#19AC52"

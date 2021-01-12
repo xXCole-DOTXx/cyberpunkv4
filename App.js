@@ -13,6 +13,7 @@ import RockerboyCareerScreen from './src/screens/CareerPointsScreen/RockerboyCar
 import SoloCareerScreen from './src/screens/CareerPointsScreen/SoloCareerScreen';
 import NomadCareerScreen from './src/screens/CareerPointsScreen/NomadCareerScreen';
 import NetRunnerCareerScreen from './src/screens/CareerPointsScreen/NetRunnerCareerScreen'
+import CorpCareerScreen from './src/screens/CareerPointsScreen/CorpCareerScreen'
 import SkillScreen from './src/screens/CharacterSkillScreen/SkillScreen';
 import * as firebase from './src/firebase'; 
 import { Provider as PaperProvider } from 'react-native-paper';
@@ -47,6 +48,7 @@ export default function App() {
           <Stack.Screen name="SoloCareerScreen" component={SoloCareerScreen}></Stack.Screen>
           <Stack.Screen name="NomadCareerScreen" component={NomadCareerScreen}></Stack.Screen>
           <Stack.Screen name="NetRunnerCareerScreen" component={NetRunnerCareerScreen}></Stack.Screen>
+          <Stack.Screen name="CorpCareerScreen" component={CorpCareerScreen}></Stack.Screen>
         </Stack.Navigator>
   
   createBottomTabs = () => 

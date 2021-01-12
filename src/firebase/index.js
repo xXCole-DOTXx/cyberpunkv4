@@ -84,5 +84,19 @@ export const initializeSolo = (playerName, Combat_Sense, Awareness_Notice, Handg
         "Intelligence.Programming": programming
     });
 
+    export const initializeCorp = (playerName, resources, awareness, humanPerception, education, librarySearch, socail, persuasion, stockMarket, wardrobe_style, personalGrooming) =>
+    firebase.firestore().collection('users').doc(playerName).update({
+        "Spcial_Abilities.Resources": resources,
+        "Intelligence.Awareness_Notice": awareness,
+        "Empathy.Human_Perception": humanPerception,
+        "Intelligence.Education_Gen_Knowledge": education,
+        "Intelligence.Library_Search": librarySearch,
+        "Empathy.Socail": socail,
+        "Empathy.Persuasion_Fast_Talk": persuasion,
+        "Intelligence.Stock_Market": stockMarket,
+        "Attractivness.Wardrobe_Style": wardrobe_style,
+        "Attractivness.Personal_Grooming": personalGrooming
+    });
+
 
 //https://rnfirebase.io/firestore/usage#snapshots  - good resourace for querying firebase
