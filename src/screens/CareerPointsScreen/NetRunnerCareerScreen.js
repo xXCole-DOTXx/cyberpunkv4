@@ -38,7 +38,7 @@ const NetRunnerCareerScreen = ({navigation, route}) => {
     return (
       <ScrollView>
         <View style={styles.container}>
-        {player?.data()?.userName && <Text>{player?.data()?.userName}</Text>}
+        {player?.userName && <Text>{player?.userName}</Text>}
             <Text>You have {skillPoints} remaining.</Text>
 
             <View style={styles.item2}>
