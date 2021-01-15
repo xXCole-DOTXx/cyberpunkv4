@@ -162,6 +162,8 @@ const CharacterSkillScreen = ({navigation, route}) => {
         Weaponsmith
       }
     } = player;
+
+    
      return (
         <ScrollView>
           <View>
