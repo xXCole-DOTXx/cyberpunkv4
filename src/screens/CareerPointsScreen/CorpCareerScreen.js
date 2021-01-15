@@ -8,6 +8,7 @@ import { initializeCorp } from '../../firebase/index.js';
 const CorpCareerScreen = ({navigation, route}) => {
     //Getting params passed from HomeScreen
     const { playerName } = route.params;
+    const { pickupPoints } = route.params;
     const [player, setPlayer] = useState(); //Examples of using hooks.
     const [skillPoints, setPoints] =useState(40); 
     const [resources, setResources] = useState(0);
@@ -203,7 +204,7 @@ const CorpCareerScreen = ({navigation, route}) => {
                       title="+"
                               onPress={() => {
                     if(skillPoints > 0 && socail < 10){
-                    setSocail(socail + 1);
+                    setSocial(socail + 1);
                     setPoints(skillPoints - 1);
                     }
                     else{
@@ -360,7 +361,8 @@ const CorpCareerScreen = ({navigation, route}) => {
                 onPress={() => {
                   initializeCorp(playerName, resources, awareness, humanPerception, education, librarySearch, socail, persuasion, stockMarket, wardrobe_style, personalGrooming);
                   navigation.navigate('CharacterSkillScreen', {
-                    playerName: playerName
+                    playerName: playerName,
+                    pickupPoints: pickupPoints
                   });
             }}
                 color="#19AC52"

@@ -7,10 +7,14 @@ import { List } from 'react-native-paper';
 
 // Destructuring objects >> https://dmitripavlutin.com/javascript-object-destructuring/
 
+//NEED TO ADD LUCK AND MA
+
 const CharacterSkillScreen = ({navigation, route}) => {
     //Getting params passed from HomeScreen
     const { playerName } = route.params;
+    const { pickupPoints } = route.params;
     const [player, setPlayer] = useState(null);
+    const [pickPoints, setPickPoints] = useState(pickupPoints);
 
     //This is for controller the expanding and collapsing
     const [expanded, setExpanded] = React.useState(true);
@@ -163,10 +167,10 @@ const CharacterSkillScreen = ({navigation, route}) => {
       }
     } = player;
 
-    
      return (
         <ScrollView>
           <View>
+          <Text>You have: {pickPoints} pickup points remaining.</Text>
             <List.Section title={userName + ": " + Role}>
 
               <List.Accordion
@@ -220,7 +224,7 @@ const CharacterSkillScreen = ({navigation, route}) => {
                 title={"Intelligence: " + Int}>
                 <List.Item title={"Accounting: " + Accounting}/>
                 <List.Item title={"Anthropology: " + Anthopology} />
-                <List.Item title={"Awareness/Notice: " + Awareness_Notice}/>
+                {Role != "Corporate" && <List.Item title={"Awareness/Notice: " + Awareness_Notice}/> }
                 <List.Item title={"Biology: " + Biology}/>
                 <List.Item title={"Botany: " + Botany}/>
                 <List.Item title={"Chemistry: " + Chemistry}/>

@@ -358,9 +358,10 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                               navigation.navigate('NetRunnerCareerScreen', {
                                 playerName: charName
                               })
-                            }else if(selectedValue == "Corp"){
+                            }else if(selectedValue == "Corporate"){
                               navigation.navigate('CorpCareerScreen', {
-                                playerName: charName
+                                playerName: charName,
+                                pickupPoints: charInt + charRef
                               })
                             }else if(selectedValue == "Techie"){
                               navigation.navigate('TechieCareerScreen', {
