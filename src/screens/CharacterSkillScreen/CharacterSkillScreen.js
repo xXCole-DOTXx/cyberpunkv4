@@ -8,7 +8,7 @@ import { List } from 'react-native-paper';
 // Destructuring objects >> https://dmitripavlutin.com/javascript-object-destructuring/
 
 //NEED TO ADD LUCK AND MA
-
+//What do I do about use state for each of the player stats? How am I going to update all of the points?
 const CharacterSkillScreen = ({navigation, route}) => {
     //Getting params passed from HomeScreen
     const { playerName } = route.params;
