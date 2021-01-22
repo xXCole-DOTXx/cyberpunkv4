@@ -5,7 +5,7 @@ import { styles } from './styles.js';
 import { getCharInfo } from '../../sharedComponents/getCharInfo.js';
 import { List } from 'react-native-paper';
 import { MaterialCommunityIcons} from 'react-native-vector-icons';
-import { Card } from 'react-native-paper';
+import { finilizePlayer } from '../../firebase/index.js';
 
 // Destructuring objects >> https://dmitripavlutin.com/javascript-object-destructuring/
 
@@ -84,7 +84,7 @@ const CharacterSkillScreen = ({navigation, route}) => {
           <View style={styles.container}>
             <List.Section title={"Pickup Points: " + pickPoints}>
               {
-                Object.keys(player).map(key => (key!="userName" && key!="stats") && (
+                Object.keys(player).map(key => (key!="userName" && key!="stats" && key!="Spcial_Abilities") && (
                   <List.Accordion title={key} key={key}>
                     {Object.keys(player[key]).map(childKey => {
                         const value = player[key][childKey];
@@ -101,6 +101,14 @@ const CharacterSkillScreen = ({navigation, route}) => {
                 ))
               }
             </List.Section>
+            <Button
+                title="Submit"
+                onPress={() => {
+                  finilizePlayer(playerName, player);
+                  navigation.navigate('Home');
+            }}
+                color="#19AC52"
+            />
           </View>
         </ScrollView>
       )
