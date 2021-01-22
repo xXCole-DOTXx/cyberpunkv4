@@ -45,7 +45,7 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                     <Picker.Item label="Solo" value="Solo" />
                     <Picker.Item label="NetRunner" value="NetRunner" />
                     <Picker.Item label="Techie" value="Techie" />
-                    <Picker.Item label="Medtech" value="Medtech" />
+                    <Picker.Item label="Medtech" value="MedTech" />
                     <Picker.Item label="Media" value="Media" />
                     <Picker.Item label="Cop" value="Cop" />
                     <Picker.Item label="Corporate" value="Corporate" />
@@ -369,6 +369,11 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                               })
                             }else if(selectedValue == "Techie"){
                               navigation.navigate('TechieCareerScreen', {
+                                playerName: charName,
+                                pickupPoints: charInt + charRef
+                              })
+                            }else if(selectedValue == "MedTech"){
+                              navigation.navigate('MedTechCareerScreen', {
                                 playerName: charName,
                                 pickupPoints: charInt + charRef
                               })

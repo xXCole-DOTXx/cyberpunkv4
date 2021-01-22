@@ -110,6 +110,20 @@ export const initializeSolo = (playerName, Combat_Sense, Awareness_Notice, Handg
         "Technology.Electronics": electronics
     });
 
+    export const initializeMedTech = (playerName, medicalTech, awareness, humanPerception, education, librarySearch, diagnose, cyrotankOperation, basicTech, zoology, pharmaceuticals) =>
+    firebase.firestore().collection('users').doc(playerName).update({
+        "Spcial_Abilities.Medical_Tech": medicalTech,
+        "Intelligence.Awareness_Notice": awareness,
+        "Empathy.Human_Perception": humanPerception,
+        "Intelligence.Education_Gen_Knowledge": education,
+        "Intelligence.Library_Search": librarySearch,
+        "Intelligence.Diagnose_Illness": diagnose,
+        "Technology.Cryotank_Operation": cyrotankOperation,
+        "Technology.Basic_Tech": basicTech,
+        "Intelligence.Zoology": zoology,
+        "Technology.Pharmacuticals": pharmaceuticals
+    });
+
     export const finilizePlayer = (playerName, player) =>
     firebase.firestore().collection('users').doc(playerName).update(player);
 
