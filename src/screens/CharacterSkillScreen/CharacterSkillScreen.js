@@ -84,7 +84,7 @@ const CharacterSkillScreen = ({navigation, route}) => {
           <View style={styles.container}>
             <List.Section title={"Pickup Points: " + pickPoints}>
               {
-                Object.keys(player).map(key => (key!="userName" && key!="stats" && key!="Spcial_Abilities") && (
+                Object.keys(player).map(key => (key!="userName" && key!="stats" && key!="Spcial_Abilities" && key!="Role") && (
                   <List.Accordion title={key} key={key}>
                     {Object.keys(player[key]).map(childKey => {
                         const value = player[key][childKey];

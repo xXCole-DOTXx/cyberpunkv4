@@ -111,7 +111,7 @@ export const initializeSolo = (playerName, Combat_Sense, Awareness_Notice, Handg
     });
 
     export const finilizePlayer = (playerName, player) =>
-    firebase.firestore().collection('users').doc(playerName).update({player});
+    firebase.firestore().collection('users').doc(playerName).update(player);
 
 
 //https://rnfirebase.io/firestore/usage#snapshots  - good resourace for querying firebase

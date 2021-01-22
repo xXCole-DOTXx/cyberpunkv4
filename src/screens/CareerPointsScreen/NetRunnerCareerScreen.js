@@ -8,6 +8,7 @@ import { initializeNetRunner } from '../../firebase/index.js';
 const NetRunnerCareerScreen = ({navigation, route}) => {
     //Getting params passed from HomeScreen
     const { playerName } = route.params;
+    const { pickupPoints } = route.params;
     const [player, setPlayer] = useState(); //Examples of using hooks.
     const [skillPoints, setPoints] =useState(40); 
     const [netInterface, setNetInterface] = useState(0);
@@ -360,7 +361,8 @@ const NetRunnerCareerScreen = ({navigation, route}) => {
                 onPress={() => {
                   initializeNetRunner(playerName, netInterface, awareness, basicTech, education, system_knowledge, cyberTech, cyberDeck_design, composition, electronics, programming);
                   navigation.navigate('CharacterSkillScreen', {
-                    playerName: playerName
+                    playerName: playerName,
+                    pickupPoints: pickupPoints
                   });
             }}
                 color="#19AC52"

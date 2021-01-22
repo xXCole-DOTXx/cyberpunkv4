@@ -8,6 +8,7 @@ import { initializeTechie } from '../../firebase/index.js';
 const TechieCareerScreen = ({navigation, route}) => {
     //Getting params passed from HomeScreen
     const { playerName } = route.params;
+    const { pickupPoints } = route.params;
     const [player, setPlayer] = useState(); //Examples of using hooks.
     const [skillPoints, setPoints] =useState(40); 
     const [juryRig, setJuryRig] = useState(0);
@@ -264,7 +265,8 @@ const TechieCareerScreen = ({navigation, route}) => {
                 onPress={() => {
                   initializeTechie(playerName, juryRig, awareness, basicTech, education, cyberTech, teaching, electronics);
                   navigation.navigate('CharacterSkillScreen', {
-                    playerName: playerName
+                    playerName: playerName,
+                    pickupPoints: pickupPoints
                   });
             }}
                 color="#19AC52"

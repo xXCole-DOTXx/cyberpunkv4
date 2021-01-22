@@ -8,6 +8,7 @@ import { initializeRockerboy } from '../../firebase/index.js';
 const RockerboyCareerScreen = ({navigation, route}) => {
     //Getting params passed from HomeScreen
     const { playerName } = route.params;
+    const { pickupPoints } = route.params;
     const [player, setPlayer] = useState(); //Examples of using hooks.
     const [skillPoints, setPoints] =useState(40); 
     const [leadership, setLeadership] = useState(0);
@@ -360,7 +361,8 @@ const RockerboyCareerScreen = ({navigation, route}) => {
                 onPress={() => {
                   initializeRockerboy(playerName, leadership, awareness, perform, style, composition, brawling, playInstrument, streetwise, persuasion, seduction);
                   navigation.navigate('CharacterSkillScreen', {
-                    playerName: playerName
+                    playerName: playerName,
+                    pickupPoints: pickupPoints
                   });
             }}
                 color="#19AC52"

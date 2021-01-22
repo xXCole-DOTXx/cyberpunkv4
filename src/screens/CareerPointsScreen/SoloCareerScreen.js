@@ -8,6 +8,7 @@ import { initializeSolo } from '../../firebase/index.js';
 const SoloCareerScreen = ({navigation, route}) => {
     //Getting params passed from HomeScreen
     const { playerName } = route.params;
+    const { pickupPoints } = route.params;
     const [player, setPlayer] = useState(); //Examples of using hooks.
     const [skillPoints, setPoints] =useState(40); 
     const [combat_Sense, setCombat_Sense] =useState(0);
@@ -360,7 +361,8 @@ const SoloCareerScreen = ({navigation, route}) => {
                         onPress={() => {
                               initializeSolo(playerName, combat_Sense, awareness_Notice, handgun, brawling, melee, weapons_Tech, rifle, athletics, submachinegun, stealth);
                               navigation.navigate('CharacterSkillScreen', {
-                                playerName: playerName
+                                playerName: playerName,
+                                pickupPoints: pickupPoints
                               });
                         }}
                 color="#19AC52"

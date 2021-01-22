@@ -344,19 +344,23 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                             userCreate(charName, selectedValue, charInt, charRef, charTech, charCool, charAttr, charLuck, charMa, charBody, charEmp);
                             if(selectedValue == "Rockerboy"){
                               navigation.navigate('RockerboyCareerScreen', {
-                                playerName: charName
+                                playerName: charName,
+                                pickupPoints: charInt + charRef
                               })
                             }else if(selectedValue == "Solo"){
                               navigation.navigate('SoloCareerScreen', {
-                                playerName: charName
+                                playerName: charName,
+                                pickupPoints: charInt + charRef
                               })
                             }else if(selectedValue == "Nomad"){
                               navigation.navigate('NomadCareerScreen', {
-                                playerName: charName
+                                playerName: charName,
+                                pickupPoints: charInt + charRef
                               })
                             }else if(selectedValue == "NetRunner"){
                               navigation.navigate('NetRunnerCareerScreen', {
-                                playerName: charName
+                                playerName: charName,
+                                pickupPoints: charInt + charRef
                               })
                             }else if(selectedValue == "Corporate"){
                               navigation.navigate('CorpCareerScreen', {
@@ -365,7 +369,8 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                               })
                             }else if(selectedValue == "Techie"){
                               navigation.navigate('TechieCareerScreen', {
-                                playerName: charName
+                                playerName: charName,
+                                pickupPoints: charInt + charRef
                               })
                             };
                         }}
