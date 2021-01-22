@@ -377,6 +377,11 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                                 playerName: charName,
                                 pickupPoints: charInt + charRef
                               })
+                            }else if(selectedValue == "Media"){
+                              navigation.navigate('MediaCareerScreen', {
+                                playerName: charName,
+                                pickupPoints: charInt + charRef
+                              })
                             };
                         }}
                 color="#19AC52"

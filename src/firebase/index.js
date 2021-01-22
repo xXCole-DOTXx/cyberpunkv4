@@ -124,6 +124,20 @@ export const initializeSolo = (playerName, Combat_Sense, Awareness_Notice, Handg
         "Technology.Pharmacuticals": pharmaceuticals
     });
 
+    export const initializeMedia = (playerName, credibility, awareness, humanPerception, education, composition, socail, persuasion, streetwise, photo, interview) =>
+    firebase.firestore().collection('users').doc(playerName).update({
+        "Spcial_Abilities.Credibility": credibility,
+        "Intelligence.Awareness_Notice": awareness,
+        "Empathy.Human_Perception": humanPerception,
+        "Intelligence.Education_Gen_Knowledge": education,
+        "Intelligence.Composition": composition,
+        "Empathy.Social": socail,
+        "Empathy.Persuasion_Fast_Talk": persuasion,
+        "Cool.Streetwise": streetwise,
+        "Technology.Photo_Film": photo,
+        "Empathy.Interview": interview
+    });
+
     export const finilizePlayer = (playerName, player) =>
     firebase.firestore().collection('users').doc(playerName).update(player);
 
