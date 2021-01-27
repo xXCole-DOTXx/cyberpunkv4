@@ -51,7 +51,6 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                     <Picker.Item label="Corporate" value="Corporate" />
                     <Picker.Item label="Fixer" value="Fixer" />
                     <Picker.Item label="Nomad" value="Nomad" />
-                    
                     </Picker>
             </View>
                 
@@ -379,6 +378,11 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                               })
                             }else if(selectedValue == "Cop"){
                               navigation.navigate('CopCareerScreen', {
+                                playerName: charName,
+                                pickupPoints: charInt + charRef
+                              })
+                            }else if(selectedValue == "Fixer"){
+                              navigation.navigate('FixerCareerScreen', {
                                 playerName: charName,
                                 pickupPoints: charInt + charRef
                               })

@@ -152,6 +152,20 @@ export const initializeSolo = (playerName, Combat_Sense, Awareness_Notice, Handg
         "Cool.Interrogation": interrogation
     });
 
+    export const initializeFixer = (playerName, streetdeal, awareness, forgery, pickLock, handgun, intimidate, brawling, pickPocket, melee, persuasion) =>
+    firebase.firestore().collection('users').doc(playerName).update({
+        "Spcial_Abilities.Streetdeal": streetdeal,
+        "Intelligence.Awareness_Notice": awareness,
+        "Technology.Forgery": forgery,
+        "Technology.Pick_Lock": pickLock,
+        "Reflex.Handgun": handgun,
+        "Cool.Intimidate": intimidate,
+        "Reflex.brawling": brawling,
+        "Technology.Pick_Pocket": pickPocket,
+        "Reflex.Melee": melee,
+        "Empathy.Persuasion_Fast_Talk": persuasion
+    });
+
     export const finilizePlayer = (playerName, player) =>
     firebase.firestore().collection('users').doc(playerName).update(player);
 
