@@ -17,6 +17,7 @@ import CorpCareerScreen from './src/screens/CareerPointsScreen/CorpCareerScreen'
 import TechieCareerScreen from './src/screens/CareerPointsScreen/TechieCareerScreen'
 import MedTechCareerScreen from './src/screens/CareerPointsScreen/MedTechCareerScreen'
 import MediaCareerScreen from './src/screens/CareerPointsScreen/MediaCareerScreen'
+import CopCareerScreen from './src/screens/CareerPointsScreen/CopCareerScreen'
 import SkillScreen from './src/screens/CharacterSkillScreen/SkillScreen';
 import * as firebase from './src/firebase'; 
 import { Provider as PaperProvider } from 'react-native-paper';
@@ -55,6 +56,7 @@ export default function App() {
           <Stack.Screen name="TechieCareerScreen" component={TechieCareerScreen}></Stack.Screen>
           <Stack.Screen name="MedTechCareerScreen" component={MedTechCareerScreen}></Stack.Screen>
           <Stack.Screen name="MediaCareerScreen" component={MediaCareerScreen}></Stack.Screen>
+          <Stack.Screen name="CopCareerScreen" component={CopCareerScreen}></Stack.Screen>
         </Stack.Navigator>
   
   createBottomTabs = () => 

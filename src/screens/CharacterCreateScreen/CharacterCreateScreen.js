@@ -377,8 +377,8 @@ const CharacterCreateScreen = ({navigation, route}) =>{
                                 playerName: charName,
                                 pickupPoints: charInt + charRef
                               })
-                            }else if(selectedValue == "Media"){
-                              navigation.navigate('MediaCareerScreen', {
+                            }else if(selectedValue == "Cop"){
+                              navigation.navigate('CopCareerScreen', {
                                 playerName: charName,
                                 pickupPoints: charInt + charRef
                               })
