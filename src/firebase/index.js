@@ -138,6 +138,20 @@ export const initializeSolo = (playerName, Combat_Sense, Awareness_Notice, Handg
         "Empathy.Interview": interview
     });
 
+    export const initializeCop = (playerName, authority, awareness, humanPerception, education, handgun, athletics, brawling, streetwise, melee, interrogation) =>
+    firebase.firestore().collection('users').doc(playerName).update({
+        "Spcial_Abilities.Authority": authority,
+        "Intelligence.Awareness_Notice": awareness,
+        "Empathy.Human_Perception": humanPerception,
+        "Intelligence.Education_Gen_Knowledge": education,
+        "Reflex.Handgun": handgun,
+        "Reflex.Athletics": athletics,
+        "Reflex.brawling": brawling,
+        "Cool.Streetwise": streetwise,
+        "Reflex.Melee": melee,
+        "Cool.Interrogation": interrogation
+    });
+
     export const finilizePlayer = (playerName, player) =>
     firebase.firestore().collection('users').doc(playerName).update(player);
 

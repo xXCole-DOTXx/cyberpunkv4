@@ -3,13 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button, Picker, Sc
 import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/native';
 import { styles } from './styles.js';
 import { getCharInfo } from '../../sharedComponents/getCharInfo.js';
-import { initializeMedia } from '../../firebase/index.js'; 
-
-
-
-// NOT DONE NEEDS COMPLETELY WORKED
-
-
+import { initializeCop } from '../../firebase/index.js'; 
 
 const CopCareerScreen = ({navigation, route}) => {
     //Getting params passed from HomeScreen
@@ -17,16 +11,16 @@ const CopCareerScreen = ({navigation, route}) => {
     const { pickupPoints } = route.params;
     const [player, setPlayer] = useState(); //Examples of using hooks.
     const [skillPoints, setPoints] =useState(40); 
-    const [credibility, setCredibility] = useState(0);
+    const [authority, setAuthority] = useState(0);
     const [awareness, setAwareness] = useState(0);
     const [humanPerception, setHumanPerception] = useState(0);
     const [education, setEducation] = useState(0);
-    const [composition, setComposition] = useState(0);
-    const [socail, setSocial] = useState(0);
-    const [persuasion, setPersuasion] = useState(0);
+    const [athletics, setAthletics] = useState(0);
+    const [brawling, setBrawling] = useState(0);
+    const [melee, setMelee] = useState(0);
     const [streetwise, setStreetwise] = useState(0);
-    const [photo, setPhoto] = useState(0);
-    const [interview, setInterview] = useState(0);
+    const [handgun, setHandgun] = useState(0);
+    const [interrogation, setInterogation] = useState(0);
   
 
      //Using React.useEffect to simulate React's #componentDidMount
@@ -49,32 +43,32 @@ const CopCareerScreen = ({navigation, route}) => {
             <Text>You have {skillPoints} remaining.</Text>
 
             <View style={styles.item2}>
-                {/* Credibility buttons */}
+                {/* Authority buttons */}
                 <Text style={{margin: 5}}>
                   <Button 
                       title="+"
                               onPress={() => {
-                    if(skillPoints > 0 && credibility < 10){
-                    setCredibility(credibility + 1);
+                    if(skillPoints > 0 && authority < 10){
+                    setAuthority(authority + 1);
                     setPoints(skillPoints - 1);
                     }
                     else{
-                      setCredibility(credibility);
+                      setAuthority(authority);
                     }
                   }}
                   />
                   
-                  Credibility: {credibility}
+                  Authority: {authority}
                 
                   <Button 
                       title="-"
                               onPress={() => {
-                    if(credibility > 0){
-                    setCredibility(credibility - 1);
+                    if(authority > 0){
+                    setAuthority(authority - 1);
                     setPoints(skillPoints + 1);
                     }
                     else{
-                      setCredibility(credibility);
+                      setAuthority(authority);
                     }
                   }}
                   />
@@ -173,94 +167,94 @@ const CopCareerScreen = ({navigation, route}) => {
                   />
                 </Text>
 
-                 {/* Composition buttons */}
+                 {/* Athletics buttons */}
                  <Text style={{margin: 5}}>
                   <Button 
                       title="+"
                               onPress={() => {
-                    if(skillPoints > 0 && composition < 10){
-                    setComposition(composition + 1);
+                    if(skillPoints > 0 && athletics < 10){
+                    setAthletics(athletics + 1);
                     setPoints(skillPoints - 1);
                     }
                     else{
-                      setComposition(composition);
+                      setAthletics(athletics);
                     }
                   }}
                   />
                   
-                  Composition: {composition}
+                  Athletics: {athletics}
                 
                   <Button 
                       title="-"
                               onPress={() => {
-                    if(composition > 0){
-                    setComposition(composition - 1);
+                    if(athletics > 0){
+                    setAthletics(athletics - 1);
                     setPoints(skillPoints + 1);
                     }
                     else{
-                      setComposition(composition);
+                      setAthletics(athletics);
                     }
                   }}
                   />
                 </Text>
 
-                 {/* Socail buttons */}
+                 {/* Brawling buttons */}
                  <Text style={{margin: 5}}>
                   <Button 
                       title="+"
                               onPress={() => {
-                    if(skillPoints > 0 && socail < 10){
-                    setSocial(socail + 1);
+                    if(skillPoints > 0 && brawling < 10){
+                    setBrawling(brawling + 1);
                     setPoints(skillPoints - 1);
                     }
                     else{
-                      setSocial(socail);
+                      setBrawling(brawling);
                     }
                   }}
                   />
                   
-                  Socail: {socail}
+                  Brawling: {brawling}
                 
                   <Button 
                       title="-"
                               onPress={() => {
-                    if(socail > 0){
-                    setSocial(socail - 1);
+                    if(brawling> 0){
+                    setBrawling(brawling - 1);
                     setPoints(skillPoints + 1);
                     }
                     else{
-                      setSocial(socail);
+                      setBrawling(brawling);
                     }
                   }}
                   />
                 </Text>
 
-                 {/* Persuasion buttons */}
+                 {/* Melee buttons */}
                  <Text style={{margin: 5}}>
                   <Button 
                       title="+"
                               onPress={() => {
-                    if(skillPoints > 0 && persuasion < 10){
-                    setPersuasion(persuasion + 1);
+                    if(skillPoints > 0 && melee < 10){
+                    setMelee(melee + 1);
                     setPoints(skillPoints - 1);
                     }
                     else{
-                      setPersuasion(persuasion);
+                      setMelee(melee);
                     }
                   }}
                   />
                   
-                  Persuasion & Fast Talk: {persuasion}
+                  Melee: {melee}
                 
                   <Button 
                       title="-"
                               onPress={() => {
-                    if(persuasion > 0){
-                    setPersuasion(persuasion - 1);
+                    if(melee > 0){
+                    melee(melee - 1);
                     setPoints(skillPoints + 1);
                     }
                     else{
-                      setPersuasion(persuasion);
+                      setMelee(melee);
                     }
                   }}
                   />
@@ -298,63 +292,63 @@ const CopCareerScreen = ({navigation, route}) => {
                   />
                 </Text>
 
-                 {/* Photo buttons */}
+                 {/* Handgun buttons */}
                  <Text style={{margin: 5}}>
                   <Button 
                       title="+"
                               onPress={() => {
-                    if(skillPoints > 0 && photo < 10){
-                    setPhoto(photo + 1);
+                    if(skillPoints > 0 && handgun < 10){
+                    setHandgun(handgun + 1);
                     setPoints(skillPoints - 1);
                     }
                     else{
-                      setPhoto(photo);
+                      setHandgun(handgun);
                     }
                   }}
                   />
                   
-                  Photo & Film: {photo}
+                  Handgun: {handgun}
                 
                   <Button 
                       title="-"
                               onPress={() => {
-                    if(photo > 0){
-                    setPhoto(photo - 1);
+                    if(handgun > 0){
+                    setHandgun(handgun - 1);
                     setPoints(skillPoints + 1);
                     }
                     else{
-                      setPhoto(photo);
+                      setHandgun(handgun);
                     }
                   }}
                   />
                 </Text>
 
-                 {/* Interview buttons */}
+                 {/* Interogation buttons */}
                  <Text style={{margin: 5}}>
                   <Button 
                       title="+"
                               onPress={() => {
-                    if(skillPoints > 0 && interview < 10){
-                    setInterview(interview + 1);
+                    if(skillPoints > 0 && interrogation < 10){
+                    setInterogation(interrogation + 1);
                     setPoints(skillPoints - 1);
                     }
                     else{
-                      setInterview(interview);
+                      setInterogation(interrogation);
                     }
                   }}
                   />
                   
-                  Interview: {interview}
+                  Interogation: {interrogation}
                 
                   <Button 
                       title="-"
                               onPress={() => {
-                    if(interview > 0){
-                    setInterview(interview - 1);
+                    if(interrogation > 0){
+                    setInterogation(interrogation - 1);
                     setPoints(skillPoints + 1);
                     }
                     else{
-                      setInterview(interview);
+                      setInterogation(interrogation);
                     }
                   }}
                   />
@@ -365,7 +359,7 @@ const CopCareerScreen = ({navigation, route}) => {
             <Button
                 title="Submit"
                 onPress={() => {
-                  initializeMedia(playerName, credibility, awareness, humanPerception, education, composition, socail, persuasion, streetwise, photo, interview);
+                  initializeCop(playerName, authority, awareness, humanPerception, education, handgun, athletics, brawling, streetwise, melee, interrogation);
                   navigation.navigate('CharacterSkillScreen', {
                     playerName: playerName,
                     pickupPoints: pickupPoints
