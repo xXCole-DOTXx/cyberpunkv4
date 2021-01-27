@@ -79,15 +79,17 @@ const CharacterSkillScreen = ({navigation, route}) => {
       </View>
     )
   } else {
-     return (
-        <ScrollView>
-          <View style={styles.container}>
-            <List.Section title={"Pickup Points: " + pickPoints}>
-              {
-                Object.keys(player).map(key => (key!="userName" && key!="stats" && key!="Spcial_Abilities" && key!="Role") && (
-                  <List.Accordion title={key} key={key}>
-                    {Object.keys(player[key]).map(childKey => {
-                        const value = player[key][childKey];
+    switch(player.Role){
+      case "Rockerboy":
+        return (
+          <ScrollView>
+            <View style={styles.container}>
+              <List.Section title={"Pickup Points: " + pickPoints}>
+                {
+                  Object.keys(player).map(key => (key!="userName" && key!="stats" && key!="Spcial_Abilities" && key!="Role") && (
+                    <List.Accordion title={key} key={key}>
+                      {Object.keys(player[key]).map(childKey => {  //If childkey = Charismatic Leadership, Awareness, perform, wardrobe, composition, brawling, play instrument, streetwise, persuasin, or seduction then dont show.
+                          const value = player[key][childKey]; //childkey is the skill that I need to check against
                           return (
                             <List.Item 
                               title={`${childKey}`} 
@@ -95,23 +97,96 @@ const CharacterSkillScreen = ({navigation, route}) => {
                               right={() => (<ModifyPointsButton value={value} handlePointsAdd={() => addPointToSkill(key, childKey)} handlePointsSubtract={() => subPointFromSkill(key, childKey)} />)} 
                             />
                           )
-                    }
-                    )}
-                  </List.Accordion>
-                ))
-              }
-            </List.Section>
-            <Button
-                title="Submit"
-                onPress={() => {
-                  finilizePlayer(playerName, player);
-                  navigation.navigate('Home');
-            }}
-                color="#19AC52"
-            />
-          </View>
-        </ScrollView>
-      )
+                          
+                      }
+                      )}
+                    </List.Accordion>
+                  ))
+                }
+              </List.Section>
+              <Button
+                  title="Submit"
+                  onPress={() => {
+                    finilizePlayer(playerName, player);
+                    navigation.navigate('Home');
+              }}
+                  color="#19AC52"
+              />
+            </View>
+          </ScrollView>
+        )
+      case "Solo":
+        return (
+          <ScrollView>
+            <View style={styles.container}>
+              <List.Section title={"Pickup Points: " + pickPoints}>
+                {
+                  Object.keys(player).map(key => (key!="userName" && key!="stats" && key!="Spcial_Abilities" && key!="Role") && (
+                    <List.Accordion title={key} key={key}>
+                      {Object.keys(player[key]).map(childKey => {
+                          const value = player[key][childKey]; //childkey is the skill that I need to check against
+                          return (
+                            <List.Item 
+                              title={`${childKey}`} 
+                              key={childKey}
+                              right={() => (<ModifyPointsButton value={value} handlePointsAdd={() => addPointToSkill(key, childKey)} handlePointsSubtract={() => subPointFromSkill(key, childKey)} />)} 
+                            />
+                          )
+                          
+                      }
+                      )}
+                    </List.Accordion>
+                  ))
+                }
+              </List.Section>
+              <Button
+                  title="Submit"
+                  onPress={() => {
+                    finilizePlayer(playerName, player);
+                    navigation.navigate('Home');
+              }}
+                  color="#19AC52"
+              />
+            </View>
+          </ScrollView>
+        )
+      default:
+        return (
+          <ScrollView>
+            <View style={styles.container}>
+              <List.Section title={"Pickup Points: " + pickPoints}>
+                {
+                  Object.keys(player).map(key => (key!="userName" && key!="stats" && key!="Spcial_Abilities" && key!="Role") && (
+                    <List.Accordion title={key} key={key}>
+                      {Object.keys(player[key]).map(childKey => {
+                          const value = player[key][childKey]; //childkey is the skill that I need to check against
+                          return (
+                            <List.Item 
+                              title={`${childKey}`} 
+                              key={childKey}
+                              right={() => (<ModifyPointsButton value={value} handlePointsAdd={() => addPointToSkill(key, childKey)} handlePointsSubtract={() => subPointFromSkill(key, childKey)} />)} 
+                            />
+                          )
+                          
+                      }
+                      )}
+                    </List.Accordion>
+                  ))
+                }
+              </List.Section>
+              <Button
+                  title="Submit"
+                  onPress={() => {
+                    finilizePlayer(playerName, player);
+                    navigation.navigate('Home');
+              }}
+                  color="#19AC52"
+              />
+            </View>
+          </ScrollView>
+        )
+    }
+    
   }
 
 }
