@@ -79,13 +79,16 @@ const CharacterSkillScreen = ({navigation, route}) => {
       </View>
     )
   } else {
+    //1.) I don't like that the order changes every time. I'd like for the order to stay the same.
+    //2.) I'd like to show the value of each stat but those values are saved in stats so they are not child keys
+    //3.) How do I exclude pickup skills from the list?
     switch(player.Role){
       case "Rockerboy":
         return (
           <ScrollView>
             <View style={styles.container}>
               <List.Section title={"Pickup Points: " + pickPoints}>
-                {
+                { 
                   Object.keys(player).map(key => (key!="userName" && key!="stats" && key!="Spcial_Abilities" && key!="Role") && (
                     <List.Accordion title={key} key={key}>
                       {Object.keys(player[key]).map(childKey => {  //If childkey = Charismatic Leadership, Awareness, perform, wardrobe, composition, brawling, play instrument, streetwise, persuasin, or seduction then dont show.

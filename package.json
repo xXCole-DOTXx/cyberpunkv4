@@ -19,6 +19,7 @@
     "firebase": "^7.24.0",
     "props": "^0.3.0",
     "react": "16.13.1",
+    "react-client-session": "^0.0.7",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
     "react-native-gesture-handler": "~1.7.0",

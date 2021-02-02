@@ -6,6 +6,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { MaterialCommunityIcons} from 'react-native-vector-icons'; //Here is a list of the icons: https://oblador.github.io/react-native-vector-icons/
 import HomeScreen from './src/screens/HomeScreen/HomeScreen';
+import BackpackScreen from './src/screens/BackpackScreen/BackpackScreen';
 import CharacterCreateScreen from './src/screens/CharacterCreateScreen/CharacterCreateScreen';
 import CharacterSelectScreen from './src/screens/CharacterSelectScreen/CharacterSelectScreen';
 import CharacterSkillScreen from './src/screens/CharacterSkillScreen/CharacterSkillScreen';
@@ -60,6 +61,14 @@ export default function App() {
           <Stack.Screen name="CopCareerScreen" component={CopCareerScreen}></Stack.Screen>
           <Stack.Screen name="FixerCareerScreen" component={FixerCareerScreen}></Stack.Screen>
         </Stack.Navigator>
+
+  
+    createToonStack = () =>
+    <Stack.Navigator>
+      <Stack.Screen name="CharacterSelect" component={CharacterSelectScreen}></Stack.Screen>
+      <Stack.Screen name="SkillSheet" component={SkillScreen, createToonBottomTabs}></Stack.Screen>
+      <Stack.Screen name="BackpackScreen" component={BackpackScreen}></Stack.Screen>
+    </Stack.Navigator>
   
   createBottomTabs = () => 
   <Tab.Navigator>
@@ -73,12 +82,36 @@ export default function App() {
             }}/>
   </Tab.Navigator>
 
+createToonBottomTabs = () => 
+<Tab.Navigator>
+    <Tab.Screen name="Skills" component={BackpackScreen} options={{tabBarIcon : ({color}) => (
+        <MaterialCommunityIcons name="account-circle" color={color} size={26} />
+      ),
+          }} />
+    <Tab.Screen name="Backpack" component={BackpackScreen} options={{tabBarIcon : ({color}) => (
+        <MaterialCommunityIcons name="bag-personal" color={color} size={26} />
+      ),
+          }}/>
+    <Tab.Screen name="info" component={BackpackScreen} options={{tabBarIcon : ({color}) => (
+        <MaterialCommunityIcons name="ballot" color={color} size={26} />
+      ),
+          }}/>
+    <Tab.Screen name="guns" component={BackpackScreen} options={{tabBarIcon : ({color}) => (
+        <MaterialCommunityIcons name="bullet" color={color} size={26} />
+      ),
+          }}/>
+    <Tab.Screen name="cybernetics" component={BackpackScreen} options={{tabBarIcon : ({color}) => (
+        <MaterialCommunityIcons name="robot" color={color} size={26} />
+      ),
+          }}/>
+</Tab.Navigator>
+
   return (
     <PaperProvider>
       <NavigationContainer initialRouteName ='Home'>
         <Drawer.Navigator>
-          <Drawer.Screen name="Home" component={createHomeStack, createBottomTabs} />
-          <Drawer.Screen name="Select a Character" component={CharacterSelectScreen} />
+          <Drawer.Screen name="Home" component={createHomeStack} />
+          <Drawer.Screen name="Select a Character" component={createToonStack} />
         </Drawer.Navigator>
       </NavigationContainer>
     </PaperProvider>

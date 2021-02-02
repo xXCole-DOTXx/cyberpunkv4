@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button, Picker, Sc
 import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/native';
 import { userFetch } from '../../sharedComponents/userFetch.js';
 import { styles } from './styles.js';
+import { ReactSession } from 'react-client-session';
 
 const CharacterSelectScreen = ({navigation, route}) => {
   const [characterList, setCharacterList] = useState([]);
@@ -37,6 +38,8 @@ const CharacterSelectScreen = ({navigation, route}) => {
                 style = {styles.button}
                 title="Submit"
                         onPress={() => {
+                          ReactSession.setStoreType("memory");
+                          ReactSession.set("playerName", selectedValue);
                              /* 1. Navigate to the Character Skill Sheet route with params */
                              navigation.navigate('SkillSheet', {
                               playerName: selectedValue
