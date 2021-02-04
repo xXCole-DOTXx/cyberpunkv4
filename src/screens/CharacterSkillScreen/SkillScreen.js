@@ -4,13 +4,13 @@ import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/
 import { styles } from './styles.js';
 import { getCharInfo } from '../../sharedComponents/getCharInfo.js';
 import { List } from 'react-native-paper';
-import { ReactSession } from 'react-client-session';
+// import { ReactSession } from 'react-client-session';
 
 // Destructuring objects >> https://dmitripavlutin.com/javascript-object-destructuring/
 
 const SkillScreen = ({navigation, route}) => {
-    //Getting params passed from HomeScreen
-    const { playerName } = route.params;
+    // const { playerName } = route.params;
+    console.log(route.params);
     const [player, setPlayer] = useState(null);
 
     //This is for controller the expanding and collapsing
@@ -24,7 +24,6 @@ const SkillScreen = ({navigation, route}) => {
     const asyncFunc = async () => {
       playerSnapshot = await getCharInfo(playerName);
       setPlayer(playerSnapshot);
-      console.log(ReactSession.get("playerName"));
     }
     //Call the async function
     asyncFunc();

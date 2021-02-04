@@ -83,8 +83,8 @@ export default function App() {
   </Tab.Navigator>
 
 createToonBottomTabs = () => 
-<Tab.Navigator>
-    <Tab.Screen name="Skills" component={BackpackScreen} options={{tabBarIcon : ({color}) => (
+<Tab.Navigator lazy={true}>
+    <Tab.Screen name="Skills" component={SkillScreen} options={{tabBarIcon : ({color}) => (
         <MaterialCommunityIcons name="account-circle" color={color} size={26} />
       ),
           }} />
@@ -109,10 +109,27 @@ createToonBottomTabs = () =>
   return (
     <PaperProvider>
       <NavigationContainer initialRouteName ='Home'>
-        <Drawer.Navigator>
+      <Stack.Navigator>
+          <Stack.Screen name="Home" component={HomeScreen}></Stack.Screen>
+          <Stack.Screen name="CharacterCreate" component={CharacterCreateScreen}></Stack.Screen>
+          <Stack.Screen name="CharacterSelect" component={CharacterSelectScreen}></Stack.Screen>
+          <Stack.Screen name="CharacterSkillScreen" component={CharacterSkillScreen}></Stack.Screen>
+          <Stack.Screen name="SkillSheet" component={createToonBottomTabs}></Stack.Screen>
+          <Stack.Screen name="RockerboyCareerScreen" component={RockerboyCareerScreen}></Stack.Screen>
+          <Stack.Screen name="SoloCareerScreen" component={SoloCareerScreen}></Stack.Screen>
+          <Stack.Screen name="NomadCareerScreen" component={NomadCareerScreen}></Stack.Screen>
+          <Stack.Screen name="NetRunnerCareerScreen" component={NetRunnerCareerScreen}></Stack.Screen>
+          <Stack.Screen name="CorpCareerScreen" component={CorpCareerScreen}></Stack.Screen>
+          <Stack.Screen name="TechieCareerScreen" component={TechieCareerScreen}></Stack.Screen>
+          <Stack.Screen name="MedTechCareerScreen" component={MedTechCareerScreen}></Stack.Screen>
+          <Stack.Screen name="MediaCareerScreen" component={MediaCareerScreen}></Stack.Screen>
+          <Stack.Screen name="CopCareerScreen" component={CopCareerScreen}></Stack.Screen>
+          <Stack.Screen name="FixerCareerScreen" component={FixerCareerScreen}></Stack.Screen>
+        </Stack.Navigator>
+        {/* <Drawer.Navigator>
           <Drawer.Screen name="Home" component={createHomeStack} />
           <Drawer.Screen name="Select a Character" component={createToonStack} />
-        </Drawer.Navigator>
+        </Drawer.Navigator> */}
       </NavigationContainer>
     </PaperProvider>
   );
