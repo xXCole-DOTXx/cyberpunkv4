@@ -6,6 +6,8 @@ import { getCharInfo } from '../../sharedComponents/getCharInfo.js';
 import { List } from 'react-native-paper';
 import { MaterialCommunityIcons} from 'react-native-vector-icons';
 import { finilizePlayer } from '../../firebase/index.js';
+import { Rockerboy_MODS } from '../../cfg/index.js'; 
+import { Solo_MODS } from '../../cfg/index.js'; 
 
 // Destructuring objects >> https://dmitripavlutin.com/javascript-object-destructuring/
 
@@ -93,14 +95,27 @@ const CharacterSkillScreen = ({navigation, route}) => {
                     <List.Accordion title={key} key={key}>
                       {Object.keys(player[key]).map(childKey => {  //If childkey = Charismatic Leadership, Awareness, perform, wardrobe, composition, brawling, play instrument, streetwise, persuasin, or seduction then dont show.
                           const value = player[key][childKey]; //childkey is the skill that I need to check against
-                          return (
-                            <List.Item 
-                              title={`${childKey}`} 
-                              key={childKey}
-                              right={() => (<ModifyPointsButton value={value} handlePointsAdd={() => addPointToSkill(key, childKey)} handlePointsSubtract={() => subPointFromSkill(key, childKey)} />)} 
-                            />
-                          )
-                          
+                    
+                          const render = () => (<List.Item 
+                            title={`${childKey}`} 
+                            right={() => (<ModifyPointsButton value={value} handlePointsAdd={() => addPointToSkill(key, childKey)} pickPoints={pickPoints} />)}  
+                          />)
+      
+                      if (!(key in Rockerboy_MODS)) {
+                        return (
+                          <List.Item 
+                            title={`${childKey}`} 
+                            right={() => (<ModifyPointsButton value={value} handlePointsAdd={() => addPointToSkill(key, childKey)} pickPoints={pickPoints} />)}  
+                          />
+                        )
+                      } else if (Rockerboy_MODS[key].indexOf(childKey) === -1) { 
+                        return (
+                          <List.Item 
+                            title={`${childKey}`} 
+                            right={() => (<ModifyPointsButton value={value} handlePointsAdd={() => addPointToSkill(key, childKey)} pickPoints={pickPoints} />)}  
+                          />
+                        )
+                        }
                       }
                       )}
                     </List.Accordion>
@@ -121,37 +136,50 @@ const CharacterSkillScreen = ({navigation, route}) => {
       case "Solo":
         return (
           <ScrollView>
-            <View style={styles.container}>
-              <List.Section title={"Pickup Points: " + pickPoints}>
-                {
-                  Object.keys(player).map(key => (key!="userName" && key!="stats" && key!="Spcial_Abilities" && key!="Role") && (
-                    <List.Accordion title={key} key={key}>
-                      {Object.keys(player[key]).map(childKey => {
-                          const value = player[key][childKey]; //childkey is the skill that I need to check against
-                          return (
-                            <List.Item 
-                              title={`${childKey}`} 
-                              key={childKey}
-                              right={() => (<ModifyPointsButton value={value} handlePointsAdd={() => addPointToSkill(key, childKey)} handlePointsSubtract={() => subPointFromSkill(key, childKey)} />)} 
-                            />
-                          )
-                          
+          <View style={styles.container}>
+            <List.Section title={"Pickup Points: " + pickPoints}>
+              { 
+                Object.keys(player).map(key => (key!="userName" && key!="stats" && key!="Spcial_Abilities" && key!="Role") && (
+                  <List.Accordion title={key} key={key}>
+                    {Object.keys(player[key]).map(childKey => {  //If childkey = Charismatic Leadership, Awareness, perform, wardrobe, composition, brawling, play instrument, streetwise, persuasin, or seduction then dont show.
+                        const value = player[key][childKey]; //childkey is the skill that I need to check against
+                  
+                        const render = () => (<List.Item 
+                          title={`${childKey}`} 
+                          right={() => (<ModifyPointsButton value={value} handlePointsAdd={() => addPointToSkill(key, childKey)} pickPoints={pickPoints} />)}  
+                        />)
+    
+                    if (!(key in Solo_MODS)) {
+                      return (
+                        <List.Item 
+                          title={`${childKey}`} 
+                          right={() => (<ModifyPointsButton value={value} handlePointsAdd={() => addPointToSkill(key, childKey)} pickPoints={pickPoints} />)}  
+                        />
+                      )
+                    } else if (Solo_MODS[key].indexOf(childKey) === -1) { 
+                      return (
+                        <List.Item 
+                          title={`${childKey}`} 
+                          right={() => (<ModifyPointsButton value={value} handlePointsAdd={() => addPointToSkill(key, childKey)} pickPoints={pickPoints} />)}  
+                        />
+                      )
                       }
-                      )}
-                    </List.Accordion>
-                  ))
-                }
-              </List.Section>
-              <Button
-                  title="Submit"
-                  onPress={() => {
-                    finilizePlayer(playerName, player);
-                    navigation.navigate('Home');
-              }}
-                  color="#19AC52"
-              />
-            </View>
-          </ScrollView>
+                    }
+                    )}
+                  </List.Accordion>
+                ))
+              }
+            </List.Section>
+            <Button
+                title="Submit"
+                onPress={() => {
+                  finilizePlayer(playerName, player);
+                  navigation.navigate('Home');
+            }}
+                color="#19AC52"
+            />
+          </View>
+        </ScrollView>
         )
       default:
         return (
